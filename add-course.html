@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Adding new course</title>
+  <meta name="description" content="This page for adding a new course for this website">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="admin-panel.html"> Home </a></li>
+      <li><a href="add-department.html">Add department</a></li>
+      <li><a href="add-course.html">Add Course</a></li>
+      <li><a href="searching-page.html">Search</a></li>
+    </ul>
+  </nav>
+<h1>Adding new course</h1>
+  <form method="POST" action="/add-course">
+      <label for="department">Select the department</label>
+      <br>
+      <input list="department" name="departmentName" placeholder="Choose department" required/>
+      <datalist id="department">
+        <option value="Department 1"></option>
+        <option value="Department 2"></option>
+        <option value="Department 3"></option>
+      </datalist>
+      <br><br>
+      <label for="courseName">Enter course name</label>
+      <br>
+      <input id="courseName" type="text" name="courseName" placeholder="Enter valid name" required/>
+      <br><br>
+      <label for="courseHours">Enter course hours</label>
+      <br>
+      <input id="courseHours" type="number" name="courseHours" min="1" max="4" value="1" required/>
+      <br><br>
+      <label for="courseDay">Enter course day number</label>
+      <br>
+      <input id="courseDay" type="number" name="courseDay" min="1" max="7" value="1" required/>
+      <br><br>
+      <label for="courseHall">Enter course hall number</label>
+      <br>
+      <input id="courseHall" type="number" name="courseHall" value="1" required/>
+      <br><br>
+      <input type="submit">
+      <input type="reset">
+  </form>
+</body>
+</html>

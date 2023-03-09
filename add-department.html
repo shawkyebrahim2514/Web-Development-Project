@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Adding new department</title>
+  <meta name="description" content="This page for adding a new department for this website">
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="admin-panel.html"> Home </a></li>
+      <li><a href="add-department.html">Add department</a></li>
+      <li><a href="add-course.html">Add Course</a></li>
+      <li><a href="searching-page.html">Search</a></li>
+    </ul>
+  </nav>
+  <h1>Adding new department</h1>
+  <form method="POST" action="/add-department">
+        <label for="departmentName">Enter department name</label>
+        <br>
+        <input id="departmentName" type="text" name="departmentName" placeholder="Enter valid name" required/>
+        <br><br>
+        <input type="submit">
+        <input type="reset">
+  </form>
+  </body>
+</html>
