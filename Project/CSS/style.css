@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  margin: 0;
+}
+
 :root {
   --padding-x: 20px;
   --padding-y: 10px;
@@ -108,17 +112,29 @@
 
 nav {
   background-color: var(--mainColor);
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
 }
 
 nav .container {
   display: flex;
   justify-content: center;
+  position: relative;
+}
+
+nav .container .links {
+  transition: var(--mainTransition);
+  transform-origin: top center;
 }
 
 nav .container .links ul {
   display: block;
   list-style: none;
   margin: 0;
+  padding: 0;
 }
 
 nav .container .links ul li {
@@ -131,20 +147,37 @@ nav .container .links ul li a {
   display: block;
   text-decoration: none;
   color: var(--lightColor);
-  padding: calc(var(--padding-y)/2) 0;
+  padding: calc(var(--padding-y) / 2) 0;
 }
 
-nav .container .links .main-list > a{
+nav .container .links .main-list > a {
   display: inline-block;
   position: relative;
   text-align: center;
 }
 
+/* Transaction from left to right */
+/*nav .container .links .main-list > a::after {*/
+/*  content: "";*/
+/*  width: 0;*/
+/*  position: absolute;*/
+/*  left: 0;*/
+/*  bottom: -3px;*/
+/*  height: 2px;*/
+/*  transition: var(--mainTransition);*/
+/*  background-color: var(--lightColor);*/
+/*}*/
+
+/*nav .container .links .main-list:hover > a::after {*/
+/*  width: 100%;*/
+/*}*/
+
+/*Transaction from inside to outside*/
 nav .container .links .main-list > a::after {
   content: "";
   width: 0;
   position: absolute;
-  left: 0;
+  left: 50%;
   bottom: -3px;
   height: 2px;
   transition: var(--mainTransition);
@@ -153,5 +186,95 @@ nav .container .links .main-list > a::after {
 
 nav .container .links .main-list:hover > a::after {
   width: 100%;
+  left: 0;
 }
 
+/* bars */
+
+nav .container .bars {
+  position: relative;
+  width: 30px;
+  height: 18px;
+  cursor: pointer;
+  display: none;
+}
+
+@media (max-width: 690px) {
+  nav .container .bars {
+    display: inline-block;
+  }
+
+  nav .container .links {
+    position: absolute;
+    top: 100%;
+    background: var(--mainColor);
+    left: 0;
+    width: 100%;
+  }
+
+  nav .container .bars.inactive ~ .links {
+    transform: rotateX(90deg);
+  }
+
+  nav .container .bars.active ~ .links {
+    transform: rotateX(0);
+  }
+
+  nav:has(.bars.active)::before {
+    content: "";
+    background-color: #0b2027;
+    position: absolute;
+    opacity: 0.3;
+    width: 100%;
+    height: calc(100vh - 100%);
+    top: 100%;
+  }
+
+  nav .container .links li {
+    display: block !important;
+    margin: 0;
+    text-align: center;
+  }
+}
+
+nav .container .bars span {
+  display: inline-block;
+  position: absolute;
+  height: 2px;
+  left: 0;
+  background-color: var(--lightColor);
+  width: 100%;
+  transition: 0.5s;
+  border-radius: 10px;
+}
+
+nav .container .bars.inactive span:nth-child(1) {
+  top: 0;
+}
+
+nav .container .bars.inactive span:nth-child(2) {
+  top: 8px;
+}
+
+nav .container .bars.inactive span:nth-child(3) {
+  top: 16px;
+}
+
+nav .container .bars.active span {
+  bottom: 50%;
+}
+
+nav .container .bars.active span:nth-child(1) {
+  transform: rotate(45deg);
+  transform-origin: center center;
+}
+
+nav .container .bars.active span:nth-child(2) {
+  transform: rotate(-45deg);
+  transform-origin: center center;
+}
+
+nav .container .bars.active span:nth-child(3) {
+  transform: rotate(-45deg);
+  transform-origin: center center;
+}

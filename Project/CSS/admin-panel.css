@@ -1,0 +1,26 @@
+section {
+  text-align: center;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 40px;
+}
+
+.links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+}
+
+.links section {
+  background-color: var(--lightColor);
+  padding: 20px 10px;
+  border-radius: var(--bs-border-radius);
+  box-shadow: var(--boxShadow)
+}
+
+.links section a {
+  text-decoration: none;
+  width: 90%;
+}
