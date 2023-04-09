@@ -15,7 +15,7 @@ h1 {
     text-align: center;
     align-content: center;
     padding: 0px 128px 0 128px;
-    margin: 64px 216px 0 110px
+    margin: 64px 216px 0 110px;
 }
 
 .content-table{
@@ -79,3 +79,36 @@ h1 {
     flex-wrap: wrap;
     align-items: center;
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .all-layers{
+        width: 1150px;
+    }
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (max-width: 800px) {
+
+  }
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    /* .all-layers{
+        width: 1150px;
+    } */
+  } 
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {
+    /* .all-layers{
+        width: 1150px;
+    } */
+  } 
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+    /* .all-layers{
+        width: 1070px;
+    } */
+  }
