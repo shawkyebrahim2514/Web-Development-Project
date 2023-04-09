@@ -1,19 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;500;700;900&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
 :root {
+  --padding-x: 20px;
+  --padding-y: 10px;
   --mainColor: #016fb9;
   --lightColor: #f8f7f9;
   --darkColor: #0b2027;
   --bs-border-width: 1px;
   --bs-border-radius: 0.375rem;
-  --bs-btn-focus-shadow-rgb: 49, 132, 253;
   --mainTransition: 0.5s;
+  --boxShadow: 1px 1px 2px #d6d6d6;
   font-family: 'Rubik', sans-serif;
   font-weight: 500;
   color: var(--darkColor);
 }
 
-button {
+.btn {
   --bs-btn-padding-x: 0.75rem;
   --bs-btn-padding-y: 0.650rem;
   --bs-btn-font-weight: 400;
@@ -38,44 +44,44 @@ button {
   font-size: 1.2em;
 }
 
-button span {
+.btn span {
   transition: var(--mainTransition);
   display: block;
 }
 
-button:not([class="static-btn"]):hover span {
+.btn:not([class="static-btn"]):hover span {
   padding-right: 12px;
 }
 
-button i {
+.btn i {
   position: absolute;
   opacity: 0;
   top: 50%;
   transition: 0.5s;
 }
 
-button:hover i {
+.btn:hover i {
   opacity: 1;
 }
 
-button.to-right-btn i{
+.btn.to-right-btn i {
   right: 5px;
 }
 
-button.to-right-btn:hover i {
+.btn.to-right-btn:hover i {
   right: 18px;
 }
 
-button.to-down-btn i{
+.btn.to-down-btn i {
   top: 5px;
   right: 15px;
 }
 
-button.to-down-btn:hover i {
+.btn.to-down-btn:hover i {
   top: 50%;
 }
 
-button::after {
+.btn::after {
   content: "";
   background-color: var(--darkColor);
   opacity: 0;
@@ -87,28 +93,65 @@ button::after {
   transition: var(--mainTransition);
 }
 
-button:hover::after {
+.btn:hover::after {
   opacity: 0.08;
 }
 
-nav .links {
-  display: inline-block;
-  position: relative;
-  padding: 5px 10px;
+.container {
+  width: 90%;
+  max-width: 1200px;
+  padding: 10px 20px;
+  margin: auto;
 }
 
-nav .links::after {
-  content: "";
-  width: 0;
-  position: absolute;
-  left: 10px;
-  bottom: -2px;
-  height: 2px;
-  transition: var(--mainTransition);
+/* Navigation Styling */
+
+nav {
   background-color: var(--mainColor);
 }
 
-nav .links:hover::after {
-  width: calc(100% - 20px);
+nav .container {
+  display: flex;
+  justify-content: center;
+}
+
+nav .container .links ul {
+  display: block;
+  list-style: none;
+  margin: 0;
+}
+
+nav .container .links ul li {
+  margin-right: 10px;
+  display: inline-block;
+  padding: var(--padding-y) var(--padding-x);
+}
+
+nav .container .links ul li a {
+  display: block;
+  text-decoration: none;
+  color: var(--lightColor);
+  padding: calc(var(--padding-y)/2) 0;
+}
+
+nav .container .links .main-list > a{
+  display: inline-block;
+  position: relative;
+  text-align: center;
+}
+
+nav .container .links .main-list > a::after {
+  content: "";
+  width: 0;
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 2px;
+  transition: var(--mainTransition);
+  background-color: var(--lightColor);
+}
+
+nav .container .links .main-list:hover > a::after {
+  width: 100%;
 }
 
