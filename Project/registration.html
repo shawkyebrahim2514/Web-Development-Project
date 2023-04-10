@@ -3,56 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <title>Registration Form</title>
+    <link rel="stylesheet" href="ss.css">
 </head>
 <body>
-<h1>Registration Form</h1>
-<form action="Registration.php" method="post">
-    <label for="id">ID:</label><br>
-    <input type="number" id="id" name="id"><br><br>
-    <label for="fname">Full name:</label><br>
-    <input type="text" id="fname" name="fname"><br><br>
-    <label for="date">Date of birth:</label><br>
-    <input type="date" id="date" name="date"><br><br>
-    <label for="university">University:</label><br>
-    <input type="text" id="university" name="university"><br><br>
-    <label for="gender">Gender:</label><br>
-    <input type="radio" name="gender" value="male" id="gender"> Male <label>
-    <input type="radio" name="gender" value="female">
-</label>
-    Female <br><br>
-    <label for="department">Department:</label>
-    <select name="department" id="department">
-        <option value="IS">IS</option>
-        <option value="CS">CS</option>
-        <option value="DS">DS</option>
-        <option value="AI">AI</option>
-        <option value="IT">IT</option>
-    </select>
-    <br><br>
+<div class="wrapper">
+    <div class="title"> Registration Form</div>
+    <div class="form">
+        <div class="input_field">
+            <label for="full-name">Full Name</label>
+            <input type="text" class="input" id="full-name">
+        </div>
+        <div class="input_field">
+            <label for="id-number">ID</label>
+            <input type="number" class="input" id="id-number">
+        </div>
+        <div class="input_field">
+            <label for="dob">Date of Birth</label>
+            <input type="date" class="input" id="dob">
+        </div>
+        <div class="input_field">
+            <label for="university">University</label>
+            <input type="text" class="input" id="university">
+        </div>
+        <div class="input_field">
+            <label for="gender">Gender</label>
+            <div class="custom_select">
+                <select id="gender">
+                    <option value=""></option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+        </div>
+        <div class="input_field">
+            <label for="status">Status</label>
+            <div class="custom_select">
+                <select id="status">
+                    <option value=""></option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
+            </div>
+        </div>
+        <div class="input_field">
+            <label for="department">Department</label>
+            <div class="custom_select">
+                <select id="department">
+                    <option value=""></option>
+                    <option value="IS">IS</option>
+                    <option value="CS">CS</option>
+                    <option value="AI">AI</option>
+                    <option value="IT">IT</option>
+                    <option value="DS">DS</option>
+                </select>
+            </div>
+        </div>
+        <div class="input_field">
+            <label for="course1">Course 1</label>
+            <div class="custom_select">
+                <select id="course1">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div class="input_field">
+            <label for="course2">Course 2</label>
+            <div class="custom_select">
+                <select id="course2">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div class="input_field">
+            <label for="course3">Course 3</label>
+            <div class="custom_select">
+                <select id="course3">
+                    <option value=""></option>
 
-    <label for="statues">Statues:</label><br>
-    <input type="radio" name="statues" value="active" id="statues"> Active <label>
-    <input type="radio" name="statues"
-           value="inactive">
-</label> Inactive <br><br>
-
-    <label for="course1">Course1:</label>
-    <select name="course1" id="course1">
-    </select>
-    <br><br>
-
-    <label for="course2">Course2:</label>
-    <select name="course2" id="course2">
-    </select>
-    <br><br>
-
-    <label for="course3">Course3:</label>
-    <select name="course3" id="course3">
-    </select>
-    <br><br>
-    <input type="submit" value="Submit">
-    <input type="reset">
-
-</form>
+                </select>
+            </div>
+        </div>
+        <div class="inputfield">
+            <input type="submit" value="Register" class="btn" id="submit-btn">
+        </div>
+    </div>
+</div>
+<script src="script.js"></script>
 </body>
 </html>
