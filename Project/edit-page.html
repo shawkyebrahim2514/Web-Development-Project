@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="CSS/Register style.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="title"> Edit Profile</div>
+    <div class="form">
+        <div class="input_field">
+            <label for="full-name">Full Name</label>
+            <input type="text" class="input" id="full-name">
+        </div>
+        <div class="input_field">
+            <label for="id-number">ID</label>
+            <input type="number" class="input" id="id-number">
+        </div>
+        <div class="input_field">
+            <label for="dob">Date of Birth</label>
+            <input type="date" class="input" id="dob">
+        </div>
+        <div class="input_field">
+            <label for="university">University</label>
+            <input type="text" class="input" id="university">
+        </div>
+        <div class="input_field">
+            <label for="gender">Gender</label>
+            <div class="custom_select">
+                <select id="gender">
+                    <option value=""></option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+        </div>
+        <div class="input_field">
+            <label for="status">Status</label>
+            <div class="custom_select">
+                <select id="status">
+                    <option value=""></option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
+            </div>
+        </div>
+        <div class="input_field">
+            <label for="department">Department</label>
+            <div class="custom_select">
+                <select id="department">
+                    <option value=""></option>
+                    <option value="IS">IS</option>
+                    <option value="CS">CS</option>
+                    <option value="AI">AI</option>
+                    <option value="IT">IT</option>
+                    <option value="DS">DS</option>
+                </select>
+            </div>
+        </div>
+        <div class="input_field">
+            <label for="course1">Course 1</label>
+            <div class="custom_select">
+                <select id="course1">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div class="input_field">
+            <label for="course2">Course 2</label>
+            <div class="custom_select">
+                <select id="course2">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div class="input_field">
+            <label for="course3">Course 3</label>
+            <div class="custom_select">
+                <select id="course3">
+                    <option value=""></option>
+
+                </select>
+            </div>
+        </div>
+        <div class="inputfield">
+            <input type="submit" value="Save" class="btn" id="submit-btn">
+        </div>
+        <div class="inputfield" >
+            <input class="btn"
+            action="action"
+            onclick="window.history.go(-1); return false;"
+            type="submit"
+            value="Go-Back"/>
+        </div>
+    </div>
+</div>
+<script src="js/edit.js"></script>
+</body>
+</html>

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="CSS/student-profile.css">
     <!--  Font Awesome Style  -->
     <link rel="stylesheet" href="CSS/all.min.css">
+
 </head>
 <body>
     <h1> Student Profile </h1>
@@ -18,7 +19,6 @@
         <div>
             
             <table class="content-table">
-                
                 <tr>
                     <th>Name:</th>
                     <td>Mohamed Essam</td>
@@ -29,7 +29,7 @@
                 </tr>
                 <tr>
                     <th>Date of Birth:</th>
-                    <td>9/3/2002</td>
+                    <td>2002-03-02</td>
                 </tr>
                 <tr>
                     <th>University:</th>
@@ -68,26 +68,31 @@
     <section >
         <div class="lower-layer">
             <div class="profile-pic">
-                <img src = "svg/profile.jpg" alt="profile Image">
+                <img src = "svg/profile.jpg" alt="profile Image" id="photo">
+                <input type="file" id="file">
+                <label for="file" id="upload-btn">Choose Photo</label>
             </div>
             
-            <button class = "btn to-right-btn" formaction="edit profile"> 
+            <button id = "edit" class = "btn to-right-btn" formaction="edit profile"> 
                 <span> Edit </span>
-                <!-- <i class="fa-solid fa-angles-right"></i> -->
+                <i class="fa-solid fa-angles-right"></i>
                 
             </button>
         
-            <button class = "btn to-right-btn" formaction="all-students-page.html">
+            <button id ="view" class = "btn to-right-btn" formaction="all-students-page.html">
                 <span> View </span> 
-                <!-- <i class="fa-solid fa-angles-right"></i> -->
+                <i class="fa-solid fa-angles-right"></i>
             </button>
         
-            <button class = "btn to-down-btn" formaction="student-page.html"> 
+            <button id ="search" class = "btn to-down-btn" formaction="student-page.html"> 
                 <span> Search </span> 
-                <!-- <i class="fa-solid fa-angles-down fa-xs"></i> -->
+                <i class="fa-solid fa-angles-down fa-xs"></i>
             </button>
         </div>
     </section>
 </div>
+
+    <!-- Student Profile js-->
+    <script src="js/student-profile.js"></script>
 </body>
 </html>
