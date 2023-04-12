@@ -126,8 +126,13 @@ submitBtn.addEventListener('click', (event) => {
         'Course 2': course2Select.value,
         'Course 3': course3Select.value
     };
-    console.log(formData);
-    for(i in formData){
-       localStorage.setItem(i,formData[i]);
+    const myPromis = new Promise((resolveFunction,reject)=>{
+        resolveFunction(document.getElementById('saved').style.display = 'inline')
     }
+    ).then(()=>{
+        setTimeout(()=>{
+            document.getElementById('saved').style.display = 'none'
+        },3000)
+        }    
+    );
 });
