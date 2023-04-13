@@ -56,3 +56,7 @@ section .container section:last-child {
 section .container section:last-child .btn {
   width: 100%;
 }
+
+.btn {
+  font-size: 1em;
+}

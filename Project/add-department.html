@@ -2,26 +2,52 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Adding new department</title>
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta name="description" content="This page for adding a new department for this website">
+  <title>Adding new department</title>
+  <!--  Main Style  -->
+  <link rel="stylesheet" href="CSS/style.css">
+  <!--  Admin panel Style  -->
+  <link rel="stylesheet" href="CSS/add-course.css">
+  <!--  Font Awesome Style  -->
+  <link rel="stylesheet" href="CSS/all.min.css">
+  <!--  Main javaScript file-->
+  <script src="js/main.js"></script>
 </head>
 <body>
-  <nav>
-    <ul>
-      <li><a href="admin-panel.html"> Home </a></li>
-      <li><a href="add-department.html">Add department</a></li>
-      <li><a href="add-course.html">Add Course</a></li>
-      <li><a href="searching-page.html">Search</a></li>
-    </ul>
-  </nav>
+<nav>
+  <div class="container">
+    <div class="bars inactive" onclick="toggleBars()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="links">
+      <ul>
+        <li class="main-list"><a href="admin-panel.html"> Home </a></li>
+        <li class="main-list"><a href="add-department.html">Add department</a></li>
+        <li class="main-list"><a href="add-course.html">Add Course</a></li>
+        <li class="main-list"><a href="searching-page.html">Search</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<section>
   <h1>Adding new department</h1>
-  <form method="POST" action="/add-department">
+  <div class="container">
+    <form method="POST" action="/add-department">
+      <section>
         <label for="departmentName">Enter department name</label>
-        <br>
         <input id="departmentName" type="text" name="departmentName" placeholder="Enter valid name" required/>
-        <br><br>
-        <input type="submit">
-        <input type="reset">
-  </form>
-  </body>
+      </section>
+
+      <section>
+        <input type="submit" class="btn">
+        <input type="reset" class="btn">
+      </section>
+    </form>
+  </div>
+</section>
+</body>
 </html>
