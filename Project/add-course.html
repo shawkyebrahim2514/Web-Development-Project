@@ -42,15 +42,16 @@
 <section>
   <h1>Adding new course</h1>
   <div class="container">
-    <form method="POST" action="/add-course">
+    <form method="POST" onsubmit="return false">
       <section>
-        <label for="department-input">Select the department</label>
-        <input list="department" name="departmentName" placeholder="Choose department" id="department-input" required/>
-        <datalist id="department">
-          <option value="Department 1"></option>
-          <option value="Department 2"></option>
-          <option value="Department 3"></option>
-        </datalist>
+        <label for="department">Select the department</label>
+        <select id="department"></select>
+<!--        <input list="department" name="departmentName" placeholder="Choose department" id="department-input" required/>-->
+<!--        <datalist id="department">-->
+<!--          <option value="Department 1"></option>-->
+<!--          <option value="Department 2"></option>-->
+<!--          <option value="Department 3"></option>-->
+<!--        </datalist>-->
       </section>
 
       <section>
@@ -74,11 +75,12 @@
       </section>
 
       <section>
-        <input type="submit" class="btn">
+        <input type="submit" class="btn" onclick="addNewCourse()">
         <input type="reset" class="btn">
       </section>
     </form>
   </div>
+  <script src="js/add-course.js"></script>
 </section>
 </body>
 </html>

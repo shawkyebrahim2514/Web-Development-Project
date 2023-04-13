@@ -42,18 +42,18 @@
 <section>
   <h1>Adding new department</h1>
   <div class="container">
-    <form method="POST" action="/add-department">
+    <form method="POST" onsubmit="return false">
       <section>
         <label for="departmentName">Enter department name</label>
         <input id="departmentName" type="text" name="departmentName" placeholder="Enter valid name" required/>
       </section>
-
       <section>
-        <input type="submit" class="btn">
+        <input type="submit" class="btn" onclick="addNewDepartment()">
         <input type="reset" class="btn">
       </section>
     </form>
   </div>
+  <script src="js/add-department.js"></script>
 </section>
 </body>
 </html>
