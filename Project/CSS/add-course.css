@@ -3,24 +3,25 @@ h1 {
   color: var(--mainColor);
 }
 
-section .container {
+section:has(form) .container {
   width: 55%;
   background-color: var(--lightColor);
   box-shadow: var(--boxShadow);
   border-radius: var(--bs-border-radius);
 }
 
-section .container label {
+section:has(form) .container label {
   font-size: 1.1em;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   display: block;
+  padding-left: 5px;
 }
 
-section .container section {
+section:has(form) .container section {
   margin-bottom: 20px;
 }
 
-section .container input:not([type = 'submit'], [type = 'reset']), section .container datalist option {
+section:has(form) .container input:not([type = 'submit'], [type = 'reset']), section .container datalist option {
   appearance: none;
   outline: none;
   border: none;
@@ -28,35 +29,31 @@ section .container input:not([type = 'submit'], [type = 'reset']), section .cont
   box-shadow: var(--boxShadow);
   background: white;
   width: 100%;
-  padding: 10px 20px;
+  padding: 15px 20px;
   border-radius: var(--bs-border-radius);
 }
 
-section .container input:not([type = 'submit'], [type = 'reset']):focus-visible {
+section:has(form) .container input:not([type = 'submit'], [type = 'reset']):focus-visible {
   border: 1px solid var(--mainColor);
   box-shadow: none;
 }
 
-section .container input[type='reset'] {
+section:has(form) .container input[type='reset'] {
   background-color: var(--dangerColor);
 }
 
-section .container section:last-child {
+section:has(form) .container section:last-child {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 
 @media (max-width: 690px) {
-  section .container section:last-child {
+  section:has(form) .container section:last-child {
     grid-template-columns: 1fr;
   }
 }
 
-section .container section:last-child .btn {
+section:has(form) .container section:last-child .btn {
   width: 100%;
-}
-
-.btn {
-  font-size: 1em;
 }
