@@ -15,7 +15,6 @@ body {
   --lightColor: #f8f7f9;
   --darkColor: #0b2027;
   --dangerColor: #ef5350;
-  --successfulColor: #4caf50;
   --bs-border-width: 1px;
   --bs-border-radius: 0.375rem;
   --mainTransition: 0.5s;
@@ -297,15 +296,18 @@ section.message > .container > div {
   padding: calc(var(--padding-y) * 2) calc(var(--padding-x) * 2);
   border-radius: var(--bs-border-radius);
   color: var(--lightColor);
-  font-weight: bold;
   text-align: center;
   font-size: 1.1em;
 }
 
 section.message > .container > .warning {
-  background-color: var(--dangerColor);
+  background-color: #fceaea;
+  border: 2px solid #ef5350;
+  color: #ef5350;
 }
 
 section.message > .container > .successful {
-  background-color: var(--successfulColor);
+  background-color: #e9fbf0;
+  border: 2px solid #0f5c2e;
+  color: #0f5c2e;
 }
