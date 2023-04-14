@@ -5,13 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In Page</title>
+    <link rel="stylesheet" href="Register-Login-style.css">
 </head>
 <body>
-    <h1>Student Login</h1>
-    <form>
-    <h5>ID:<input type="text" name="ID" size=8></h5>
-    <h5>Password:<input type="text" name="Password" size=20></h5>
-    <input type="submit" value="Log in">
-    </form>
+    
+    <div class = "wrapper">
+        <div class = "title">Student Login</div>
+        <div class = "form">
+            <div class = "input_field">
+                <label for = "ID">ID</label>
+                <input type = "text" class = "input" id="ID">
+            </div>
+            <div class = "input_field">
+                <label for = "Password">Password</label>
+                <input type = "text" class = "input" id="Password">
+            </div>
+            <div class="inputfield">
+                <input type="submit" value="Log in" class="btn" id="submit-btn">
+            </div>
+        </div>
+    </div>
 </body>
 </html>

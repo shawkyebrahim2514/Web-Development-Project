@@ -1,68 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Student Profile</title>
-        <meta name = "description" content = "Student Profile Page">
-        <style>
-            table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-            text-align: left;
-            width: 50%;
-            }
-        </style>
-    </head>
-    <body>
-        <h1> Student Profile </h1>
-        <table style="width:50%;">
+<head>
+    <meta charset="utf-8">
+    <title>Student Profile</title>
+    <meta name = "description" content = "Student Profile Page">
+    <!--  Main Style  -->
+    <link rel="stylesheet" href="CSS/style.css">
+    <!-- Student Profile Style-->
+    <link rel="stylesheet" href="CSS/student-profile.css">
+    <!--  Font Awesome Style  -->
+    <link rel="stylesheet" href="CSS/all.min.css">
+
+</head>
+<body>
+    <h1> Student Profile </h1>
+    <div class="all-layers">
+    <section class="upper-layer">
+        <div>
             
-            <tr>
-                <th>Name:</th>
-                <td>Mohamed Essam</td>
-            </tr>
-            <tr>
-                <th>ID:</th>
-                <td>20210346</td>
-            </tr>
-            <tr>
-                <th>Date of Birth:</th>
-                <td>9/3/2002</td>
-            </tr>
-            <tr>
-                <th>University:</th>
-                <td>Cairo-Universirty</td>
-            </tr>
-            <tr>
-                <th>Gender:</th>
-                <td>Male</td>
-            </tr>
-            <tr>
-                <th>Department:</th>
-                <td>Computer Science</td>
-            </tr>
-            <tr>
-                <th>Status:</th>
-                <td>Active</td>
-            </tr>
-            <tr>
-                <th>Course1:</th>
-                <td>Math</td>
-            </tr>
-            <tr>
-                <th>Course2:</th>
-                <td>English</td>
-            </tr>
-            <tr>
-                <th>Course3:</th>
-                <td>Biology</td>
-            </tr>
-        </table>
-        <br>
-        <form>
-            <button class = "button edit" formaction="edit profile"> Edit </button>
-            <button class = "button view" formaction="all-students-page.html"> View </button>
-            <button class = "button Search" formaction="student-page.html"> Search </button>
-       
-    </body>
+            <table class="content-table">
+                <tr>
+                    <th>Name:</th>
+                    <td>Mohamed Essam</td>
+                </tr>
+                <tr>
+                    <th>ID:</th>
+                    <td>20210346</td>
+                </tr>
+                <tr>
+                    <th>Date of Birth:</th>
+                    <td>2002-03-02</td>
+                </tr>
+                <tr>
+                    <th>University:</th>
+                    <td>Cairo-Universirty</td>
+                </tr>
+                <tr>
+                    <th>Gender:</th>
+                    <td>Male</td>
+                </tr>
+                <tr>
+                    <th>Department:</th>
+                    <td>Computer Science</td>
+                </tr>
+                <tr>
+                    <th>Status:</th>
+                    <td>Active</td>
+                </tr>
+                <tr>
+                    <th>Course1:</th>
+                    <td>Math</td>
+                </tr>
+                <tr>
+                    <th>Course2:</th>
+                    <td>English</td>
+                </tr>
+                <tr>
+                    <th>Course3:</th>
+                    <td>Biology</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <br>
+
+    <section >
+        <div class="lower-layer">
+            <div class="profile-pic">
+                <img src = "svg/profile.jpg" alt="profile Image" id="photo">
+                <input type="file" id="file">
+                <label for="file" id="upload-btn">Choose Photo</label>
+            </div>
+            
+            <button id = "edit" class = "btn to-right-btn" formaction="edit profile"> 
+                <span> Edit </span>
+                <i class="fa-solid fa-angles-right"></i>
+                
+            </button>
+        
+            <button id ="view" class = "btn to-right-btn" formaction="all-students-page.html">
+                <span> View </span> 
+                <i class="fa-solid fa-angles-right"></i>
+            </button>
+        
+            <button id ="search" class = "btn to-down-btn" formaction="student-page.html"> 
+                <span> Search </span> 
+                <i class="fa-solid fa-angles-down fa-xs"></i>
+            </button>
+        </div>
+    </section>
+</div>
+
+    <!-- Student Profile js-->
+    <script src="js/student-profile.js"></script>
+</body>
 </html>

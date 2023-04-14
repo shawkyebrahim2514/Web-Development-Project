@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Registration Form</title>
-    <link rel="stylesheet" href="CSS/Register-Login-style.css">
+    <title>Edit Form</title>
+    <link rel="stylesheet" href="CSS/edit.css">
 </head>
 <body>
 <div class="wrapper">
-    <div class="title"> Registration Form</div>
+    <div class="title"> Edit Profile</div>
+    <span id="saved">Your item has been saved <img src="svg/check.png" alt="check mark"></span>
     <div class="form">
         <div class="input_field">
             <label for="full-name">Full Name</label>
@@ -84,10 +85,16 @@
             </div>
         </div>
         <div class="inputfield">
-            <input type="submit" value="Register" class="btn" id="submit-btn">
+            <input type="submit" value="Save" class="btn" id="submit-btn">
+            <input class="btn"
+            action="action"
+            onclick="window.history.go(-1); return false;"
+            type="submit"
+            value="Go-Back"/>
+            <!-- <input type="submit" value="Go-Back" onclick="window.location.href='student-profile.html'" class="btn" id="submit-btn"> -->
         </div>
     </div>
 </div>
-<script src="registerationform-js.js"></script>
+<script src="js/edit.js"></script>
 </body>
 </html>

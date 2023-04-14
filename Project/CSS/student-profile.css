@@ -1,0 +1,251 @@
+* {
+    box-sizing: border-box;
+}
+
+section{
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 40px;
+}
+
+.all-layers{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content:space-evenly;
+    text-align: center;
+    align-content: center;
+    padding: 0px 50px 0 128px;
+    margin: 64px 165px 0 110px;
+}
+
+.content-table{
+    font-size: 1.0em;
+    padding: 20px;
+    border-collapse: collapse;
+    text-align: left;
+    min-width: 400px;
+    width: 1130px;
+    border-radius: 5px 5px 0 0;
+    overflow:hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+
+.content-table tr:nth-child(even){
+    background-color: #ffffff;
+}
+
+.content-table tr:last-of-type{
+    border-bottom: 4px solid var(--mainColor);
+}
+
+.content-table tr{
+    background-color: var(--lightColor);
+    border-bottom: 1px solid var(--darkColor);
+}
+
+.content-table th{
+    color : var(--darkColor);
+    text-align: left;
+    font-weight: 500;
+}
+
+.content-table td{
+    font-weight: 200;
+    padding: 10px 15px;
+    text-align: left;
+}
+
+.content-table th:hover,tr:hover,td:hover{
+    color:var(--mainColor)
+}
+
+.profile-pic img{
+    width:150px;
+    height: 150px;
+    border-radius: 30%;
+    overflow: hidden;
+}
+
+#file{
+    display: none;
+}
+
+.upper-layer{
+    padding: 0px 0px 0px 27px;
+}
+
+#upload-btn{
+    height: fit-content;
+    position: absolute;
+    left:139px;
+    top:140px;
+    text-align: center;
+    line-height: 30px;
+    background-color: var(--darkColor);
+    border-radius: 5px;
+    color: var(--lightColor);
+    font-size: 16px;
+    font-weight: 50;
+    transform: translate(50px,50px);
+    cursor: pointer;
+    display: none;
+}
+.btn{
+    width: 160px;
+}
+.btn i{
+    top:32%;
+}
+
+.lower-layer{
+    display: flex;
+    width: calc(100%/3);
+    height: 580px;
+    padding: 0px 70px 0px 67px;
+    margin: -67px -53px 0px 27px;
+    flex-direction: column;
+    justify-content:space-evenly;
+    text-align: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 650px) {
+    .all-layers{
+        padding: 0px 100px 0px 0px;
+    }
+    .upper-layer{
+        width: fit-content;
+        padding: 0px 0px 0px 148px;
+    }
+    .content-table{
+        width: 20px;
+    }
+    .btn{
+        width: 120px;
+    }
+    .btn i{
+        display: none;
+    }
+    .lower-layer{
+        flex-direction: row;
+        flex-wrap: nowrap;
+        position: absolute;
+        top:27%;
+        left:59%;
+        align-items:flex-end;
+        width: 20px;
+        margin: -50px -18px 0px -70px;
+        padding: 0px 0px 0px 0px;
+    }
+    button[formaction = "edit profile"]{
+        margin: 0px 67px 0px -14px;
+        padding:12px;
+    }
+    button[formaction = "all-students-page.html"]{
+        margin: 0px 55px 0px -3px;
+        padding:12px;
+    }
+    button[formaction = "student-page.html"]{
+        padding:12px;
+    }
+    .profile-pic img{
+        display: none;
+    }
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (max-width: 800px) and (min-width:600px) {
+    .all-layers{
+        padding: 0px 100px 0px 0px;
+    }
+    .upper-layer{
+        width: auto;
+        padding: 0px 0px 0px 148px;
+    }
+    .content-table{
+        width: 550px;
+    }
+    .btn{
+        width: 120px;
+    }
+    .btn i{
+        display: none;
+    }
+    .lower-layer{
+        flex-direction: row;
+        flex-wrap: nowrap;
+        position: absolute;
+        top:27%;
+        left:59%;
+        align-items:flex-end;
+        width: 20px;
+        margin: -50px -18px 0px -70px;
+        padding: 0px 0px 0px 0px;
+    }
+    button[formaction = "edit profile"]{
+        margin: 0px 67px 0px -14px;
+        padding:12px;
+    }
+    button[formaction = "all-students-page.html"]{
+        margin: 0px 105px 0px 55px;
+        padding:12px;
+    }
+    button[formaction = "student-page.html"]{
+        padding:12px;
+    }
+    .profile-pic img{
+        display: none;
+    }
+  }
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (max-width: 1200px) and (min-width:800px) {
+    .all-layers{
+        padding: 0px 100px 0px 0px;
+    }
+    .upper-layer{
+        width: auto;
+        padding: 0px 0px 0px 148px;
+        margin-left:60px; 
+    }
+    .content-table{
+        width: 700px;
+    }
+    .btn{
+        width: 120px;
+    }
+    .btn i{
+        display: none;
+    }
+    .lower-layer{
+        flex-direction: row;
+        flex-wrap: nowrap;
+        position: absolute;
+        top:27%;
+        left:59%;
+        align-items:flex-end;
+        width: 20px;
+        margin: -50px -18px 0px -70px;
+        padding: 0px 0px 0px 0px;
+    }
+    button[formaction = "edit profile"]{
+        margin: 0px 67px 0px -14px;
+        padding:12px;
+    }
+    button[formaction = "all-students-page.html"]{
+        margin: 0px 105px 0px 55px;
+        padding:12px;
+    }
+    button[formaction = "student-page.html"]{
+        padding:12px;
+    }
+    .profile-pic img{
+        display: none;
+    }
+  } 
