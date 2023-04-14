@@ -1,16 +1,23 @@
-
-
 //Button Declaration
 const buttonEdit = document.getElementById('edit');
 const buttonView = document.getElementById('view');
 const buttonSearch = document.getElementById('search');
 
+let users = {};
+
 buttonEdit.onclick = function(){
     let data = document.getElementsByTagName('td');
     let header = document.getElementsByTagName('th');
-    for(i in data){
-        localStorage.setItem(header[i].innerHTML, data[i].innerHTML);
+    let stInfo = {};
+    for(let i = 0; i < 10; i++){
+        let key = header[i].innerHTML;
+        let val = data[i].innerHTML;
+        stInfo[key] = val;
     }
+    users[data[1].innerHTML] = JSON.stringify(stInfo);
+    localStorage.setItem('studentInfo',JSON.stringify(users));
+    // TO GET STUDENT INFO By ID.
+    // let z = JSON.parse(JSON.parse(localStorage.getItem('studentInfo'))[20210346])
     location.href = "edit-page.html";
 };
 
@@ -70,7 +77,7 @@ file.addEventListener('change', function(){
 //     // Now we can access the #test element on the other page
 //     const testDiv = page.document.getElementById('test')
 //     testDiv.textContent = 'Hello world!'
-//   })
+// })
 // let data1 = localStorage.getItem('Full Name');
 // let data2 = localStorage.getItem('ID');
 // let data3 = localStorage.getItem('Date of Birth');
@@ -82,7 +89,21 @@ file.addEventListener('change', function(){
 // let data9 = localStorage.getItem('Course 2');
 // let data10 = localStorage.getItem('Course 3');
 
-// let data = document.getElementsByTagName('td');
+
+let data = document.getElementsByTagName('td');
+let zData = JSON.parse(JSON.parse(localStorage.getItem('studentInfo'))[data[1].innerHTML]);
+
+data[0].innerHTML = zData['Name:'];
+data[1].innerHTML = zData['ID:'];
+data[2].innerHTML = zData['Date of Birth:'];
+data[3].innerHTML = zData['University:'];
+data[4].innerHTML = zData['Gender:'];
+data[5].innerHTML = zData['Status:'];
+data[6].innerHTML = zData['Department:'];
+data[7].innerHTML = zData['Course1:'];
+data[8].innerHTML = zData['Course2:'];
+data[9].innerHTML = zData['Course3:'];
+
 // for(i in data){
 //     data[i].innerHTML = data1;
 // }

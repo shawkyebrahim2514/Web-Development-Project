@@ -77,27 +77,18 @@ const course3Select = document.getElementById('course3');
 const submitBtn = document.getElementById('submit-btn');
 
 //Put Default Values
-let data1 = localStorage.getItem('Name:');
-let data2 = localStorage.getItem('ID:');
-let data3 = localStorage.getItem('Date of Birth:');
-let data4 = localStorage.getItem('University:');
-let data5 = localStorage.getItem('Gender:');
-let data6 = localStorage.getItem('Department:');
-let data7 = localStorage.getItem('Status:');
-let data8 = localStorage.getItem('Course1:');
-let data9 = localStorage.getItem('Course2:');
-let data10 = localStorage.getItem('Course3:');
-
-fullNameInput.setAttribute('value',data1);
-idNumberInput.setAttribute('value',data2);
-dobInput.setAttribute('value',data3);
-universityInput.setAttribute('value',data4);
-// genderSelect.setAttribute('value',data5);
-// statusSelect.setAttribute('value',data6);
-// departmentSelect.setAttribute('value',data7);
-// course1Select.setAttribute('value',data8);
-// course2Select.setAttribute('value',data9);
-// course3Select.setAttribute('value',data10);
+let zData = JSON.parse(JSON.parse(localStorage.getItem('studentInfo'))[20210346])
+// ID CHange to session that is used until now of log in page/!!!
+fullNameInput.setAttribute('value',zData['Name:']);
+idNumberInput.setAttribute('value',zData['ID:']);
+dobInput.setAttribute('value',zData['Date of Birth:']);
+universityInput.setAttribute('value',zData['University:']);
+genderSelect.value = zData['Gender:'];
+statusSelect.value = zData['Status:'];
+departmentSelect.value = zData['Department:'];
+course1Select.value = zData['Course1:'];
+course2Select.value = zData['Course2:'];
+course3Select.value = zData['Course3:'];
 
 // populate courses select elements when department is changed
 departmentSelect.addEventListener('change', () => {
@@ -113,19 +104,19 @@ submitBtn.addEventListener('click', (event) => {
         alert('Please fill in all required fields.');
         return;
     }
-
-    const formData = {
-        'Full Name': fullNameInput.value,
-        'ID': idNumberInput.value,
-        'Date of Birth': dobInput.value,
-        'University': universityInput.value,
-        'Gender': genderSelect.value,
-        'Status': statusSelect.value,
-        'Department': departmentSelect.value,
-        'Course 1': course1Select.value,
-        'Course 2': course2Select.value,
-        'Course 3': course3Select.value
-    };
+    zData['Name:'] = fullNameInput.value;
+    zData['ID:'] = idNumberInput.value;
+    zData['Date of Birth:'] = dobInput.value;
+    zData['University:'] = universityInput.value;
+    zData['Gender:'] = genderSelect.value;
+    zData['Status:']= statusSelect.value;
+    zData['Department:'] = departmentSelect.value;
+    zData['Course1:'] = course1Select.value;
+    zData['Course2:'] = course2Select.value;
+    zData['Course3:'] = course3Select.value;
+    localStorage.setItem('studentInfo',JSON.stringify(zData));
+ 
+    
     const myPromis = new Promise((resolveFunction,reject)=>{
         resolveFunction(document.getElementById('saved').style.display = 'inline')
     }
