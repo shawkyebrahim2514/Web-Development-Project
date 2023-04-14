@@ -3,52 +3,49 @@
     <head>
         <title>Student Page</title>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="CSS/all.min.css">
+        <link rel="stylesheet" href="CSS/student-page.css">
     </head>
 
     <body>
-        <h1>Welcome to the student page</h1>
-        
-        <hr/>
-        
-        <div>
-        <label for id="srchbr">Search for student</label>
+        <nav>
+            <div class="container">
+              <div class="bars inactive" onclick="toggleBars()">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="links">
+                <ul>
+                  <li class="main-list"><a href="admin-panel.html"> Home </a></li>
+                  <li class="main-list"><a href="add-department.html">Add department</a></li>
+                  <li class="main-list"><a href="add-course.html">Add Course</a></li>
+                  <li class="main-list"><a href="searching-page.html">Search</a></li>
+                  <li class="main-list"><a href="student-page.html">Active Students</a>
+                </ul>
+              </div>
+            </div>
+          </nav>
+
+        <h1>Student Page</h1>
+
+        <div class="searchbar">
+            <input id="bar" type ="input" maxlength="30" data-search placeholder="Search.."/>
         </div>
 
-        <div>
-            <input id="srchbr" type ="search" maxlength="30" required placeholder="Active Student Name"/>
-            <input id="submit" type ="submit" value ="Search">
-        </div>
-        
-        <hr/>
-        
-        <table>
-            <div>
+        <table id="studT">
+            <div class="tablehead">
                 <tr>
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Student ID</th>
-                    <th>Status</th>
+                    <th>Activity Status</th>
                 </tr>
             </div>
-
-            <div>
-                <tr>
-                    <td>Mahmoud</td>
-                    <td>Sakr</td>
-                    <td>20210368</td>
-                    <td>Active</td>
-                </tr>
-            </div>
-
-            <div>
-                <tr>
-                <td>Abo Hamada</td>
-                <td>Tamer</td>
-                <td>20210588</td>
-                <td>Inactive</td>
-                </tr>
-            </div>
-            
         </table>
+
+
+        <script src="js/student-page.js"></script>
     </body>
 </html>
