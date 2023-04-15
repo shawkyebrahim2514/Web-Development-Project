@@ -21,7 +21,7 @@ section:has(form) .container section {
   margin-bottom: 20px;
 }
 
-section:has(form) .container input:not([type = 'submit'], [type = 'reset']), section .container datalist option {
+section:has(form) .container input:not([type = 'submit'], [type = 'reset']), section .container datalist option, select {
   appearance: none;
   outline: none;
   border: none;
