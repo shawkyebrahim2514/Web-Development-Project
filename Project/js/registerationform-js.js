@@ -30,36 +30,18 @@ function populateCourses(departmentSelect, courseSelect1, courseSelect2, courseS
             break;
     }
 
-    // remove existing options from course select elements
-    const selectedCourses = [courseSelect1.value, courseSelect2.value, courseSelect3.value];
-    [courseSelect1, courseSelect2, courseSelect3].forEach((courseSelect) => {
-        while (courseSelect.options.length > 0) {
-            const option = courseSelect.options[0];
-            if (selectedCourses.indexOf(option.value) === -1) {
-                courseSelect.remove(0);
-            } else {
-                selectedCourses.splice(selectedCourses.indexOf(option.value), 1);
-            }
-        }
-    });
-
-    // add new options based on selected department, excluding selected courses
-    courses.forEach((course) => {
-        if (selectedCourses.indexOf(course) === -1) {
-            [courseSelect1, courseSelect2, courseSelect3].forEach((courseSelect) => {
-                const option = new Option(course, course);
-                courseSelect.add(option);
-            });
-        }
-    });
-
-    // remove selected courses from available courses list
-    [courseSelect1, courseSelect2, courseSelect3].forEach((courseSelect) => {
-        const selectedCourse = courseSelect.value;
-        if (selectedCourse) {
-            courses.splice(courses.indexOf(selectedCourse), 1);
-        }
-    });
+    // display courses in course select elements
+    courseSelect1.innerHTML = '';
+    courseSelect2.innerHTML = '';
+    courseSelect3.innerHTML = '';
+    for (let i = 0; i < courses.length; i++) {
+        const option = document.createElement('option');
+        option.text = courses[i];
+        option.value = courses[i];
+        courseSelect1.add(option);
+        courseSelect2.add(option.cloneNode(true));
+        courseSelect3.add(option.cloneNode(true));
+    }
 }
 
 
@@ -86,10 +68,72 @@ submitBtn.addEventListener('click', (event) => {
     event.preventDefault();
 
     // validate form data
-    if (!fullNameInput.value || !idNumberInput.value || !dobInput.value || !universityInput.value) {
-        alert('Please fill in all required fields.');
+    if (!fullNameInput.value) {
+        alert('Please enter your full name.');
         return;
     }
+
+    if (!fullNameInput.value.match(/^[a-zA-Z]+\s[a-zA-Z]+$/)) {
+        alert('Please enter your full name with at least two separated strings.');
+        return;
+    }
+
+    if (!idNumberInput.value) {
+        alert('Please enter your ID number.');
+        return;
+    }
+
+    const idRegex = /^(19[0-9]{2}|20[0-2][0-9]|2030)[0-9]{4}$/; // Regex to match valid IDs
+
+    if (!idNumberInput.value.match(idRegex)) {
+        alert('Please enter a valid ID number with the format YYYYXXXX.');
+        return;
+    }
+
+
+    if (!dobInput.value) {
+        alert('Please enter your date of birth.');
+        return;
+    }
+
+    if (!universityInput.value) {
+        alert('Please enter your university.');
+        return;
+    }
+    if (genderSelect.value === '') {
+        alert('Please select your gender.');
+        return;
+    }
+    if (statusSelect.value === '') {
+        alert('Please select your status.');
+        return;
+    }
+
+    if (departmentSelect.value === '') {
+        alert('Please select a department.');
+        return;
+    }
+
+    if (course1Select.value === '') {
+        alert('Please select a course for Course 1.');
+        return;
+    }
+
+    if (course2Select.value === '') {
+        alert('Please select a course for Course 2.');
+        return;
+    }
+
+    if (course3Select.value === '') {
+        alert('Please select a course for Course 3.');
+        return;
+    }
+
+    if (course1Select.value === course2Select.value || course1Select.value === course3Select.value || course2Select.value === course3Select.value) {
+        alert('Please select three unique courses.');
+        return;
+    }
+
 
     const formData = {
         'Full Name': fullNameInput.value,
@@ -103,6 +147,10 @@ submitBtn.addEventListener('click', (event) => {
         'Course 2': course2Select.value,
         'Course 3': course3Select.value
     };
+    // save form data in local storage
+    localStorage.setItem('formData', JSON.stringify(formData));
     console.log(formData);
-})
-;
+    window.location.replace("./main-page")
+
+});
+
