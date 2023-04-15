@@ -32,7 +32,7 @@ body {
   --bs-btn-padding-y: 0.650rem;
   --bs-btn-font-weight: 400;
   --bs-btn-line-height: 1.5;
-  --bs-btn-color: var(--lightColor);
+  --bs-btn-color: var(--lightColor-3);
   --bs-btn-bg: var(--mainColor);
   --bs-btn-border-width: var(--bs-border-width);
   --bs-btn-border-color: transparent;
@@ -49,7 +49,8 @@ body {
   transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
   width: 120px;
   position: relative;
-  font-size: 1em;
+  font-size: 1.2em;
+  font-weight: 400;
 }
 
 .btn span {
@@ -121,6 +122,9 @@ nav {
   left: 0;
   right: 0;
   z-index: 2;
+  color: var(--lightColor-3);
+  font-weight: 400;
+  font-size: 1.2em;
 }
 
 nav .container {
@@ -129,9 +133,17 @@ nav .container {
   position: relative;
 }
 
+nav .container .logo {
+  height: 50px;
+  position: absolute;
+  left: 0;
+}
+
 nav .container .links {
   transition: var(--mainTransition);
   transform-origin: top center;
+  display: flex;
+  justify-content: flex-end;
 }
 
 nav .container .links ul {
@@ -185,7 +197,7 @@ nav .container .links .main-list > a::after {
   bottom: -3px;
   height: 2px;
   transition: var(--mainTransition);
-  background-color: var(--lightColor);
+  background-color: var(--lightColor-3);
 }
 
 nav .container .links .main-list:hover > a::after {
@@ -199,11 +211,12 @@ nav .container .bars {
   position: relative;
   width: 30px;
   height: 18px;
+  margin: calc(var(--padding-y)*1.5) var(--padding-x);
   cursor: pointer;
   display: none;
 }
 
-@media (max-width: 690px) {
+@media (max-width: 862px) {
   nav .container .bars {
     display: inline-block;
   }
@@ -214,6 +227,7 @@ nav .container .bars {
     background: var(--mainColor);
     left: 0;
     width: 100%;
+    justify-content: center;
   }
 
   nav .container .bars.inactive ~ .links {
@@ -246,7 +260,7 @@ nav .container .bars span {
   position: absolute;
   height: 2px;
   left: 0;
-  background-color: var(--lightColor);
+  background-color: var(--lightColor-3);
   width: 100%;
   transition: 0.5s;
   border-radius: 10px;
