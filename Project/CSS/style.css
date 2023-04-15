@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,900;1,300;1,400;1,900&display=swap');
 
 * {
   box-sizing: border-box;
@@ -11,16 +11,19 @@ body {
 :root {
   --padding-x: 20px;
   --padding-y: 10px;
-  --mainColor: #1565c0;
-  --lightColor: #f8f7f9;
-  --darkColor: #0b2027;
+  --mainColor: #02020b;
+  --lightColor-1: #ece4b7;
+  --lightColor-2: #e6aa68;
+  --lightColor-3: #ffffff;
+  --darkColor-1: #191921;
+  --darkColor-2: #303037;
   --dangerColor: #ef5350;
   --bs-border-width: 1px;
   --bs-border-radius: 0.375rem;
   --mainTransition: 0.5s;
-  --boxShadow: 1px 1px 2px #d6d6d6;
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
+  --boxShadow: 1px 1px 2px var(--darkColor-2);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
   color: var(--darkColor);
 }
 
