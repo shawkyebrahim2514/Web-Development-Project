@@ -24,7 +24,7 @@ nav h1 {
     max-width: 100%;
     color: var(--darkColor-1);
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 1fr 4fr;
     margin: 0 auto;
     width: 100%;
     padding: 20px 40px;
@@ -38,6 +38,12 @@ nav h1 {
     padding: 10px 20px;
     border-radius: 15px;
     align-items: center;
+    position: relative;
+}
+
+.container > section img{
+    position: absolute;
+    top: 120px;
 }
 
 .container > section :where(h1, p){
@@ -59,12 +65,12 @@ nav h1 {
 }
 
 .container > div > figure {
-    background-color: var(--lightColor-1);
+    background-color: var(--darkColor-1);
+    color: var(--lightColor-3);
     /* border: 1px solid var(--darkColor-1); */
     margin: 0;
     border-radius: 15px;
-    padding: 8px;
-    box-shadow: var(--boxShadow);
+    padding: 0 0 4px 0;
 }
 
 .container > div figure figcaption{
@@ -78,7 +84,7 @@ nav h1 {
 
 .container > div img {
     width: 100%;
-    border-radius: 15px;
+    border-radius: 15px 15px 0 0;
     object-fit: cover;
     position: relative;
     display: block;
@@ -86,17 +92,15 @@ nav h1 {
     transition: var(--mainTransition);
 }
 
-.container > div figure > div {
+.container > div figure div {
     position: relative;
     overflow: hidden;
-    border-radius: 15px;
+    border-radius: 15px 15px 0 0;
     height: 300px;
     object-fit: cover;
-    /* border: 1px solid var(--darkColor-1); */
-    box-shadow: var(--boxShadow);
 }
 
-.container > div > figure > div::after {
+.container > div > figure div::after {
     position: absolute;
     content: "";
     width: 100%;
@@ -108,10 +112,10 @@ nav h1 {
     transition: 1s;
 }
 
-.container > div figure > div#our-project:hover::after {
+.container > div figure div#our-project:hover::after {
     opacity: 0;
 }
 
-.container > div figure > div:hover img {
+.container > div figure div:hover img {
     transform: scale(1.1) rotate(3deg);
 }
