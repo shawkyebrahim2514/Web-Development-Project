@@ -76,8 +76,9 @@ const course2Select = document.getElementById('course2');
 const course3Select = document.getElementById('course3');
 const submitBtn = document.getElementById('submit-btn');
 
-//Put Default Values
-let zData = JSON.parse(JSON.parse(localStorage.getItem('studentInfo'))[20210346])
+//Put Default Values  // NEED TO PUT THE RIGHT ID!
+let zData = JSON.parse(localStorage.getItem('studentInfo'))[20210346];
+
 // ID CHange to session that is used until now of log in page/!!!
 fullNameInput.setAttribute('value',zData['Name:']);
 idNumberInput.setAttribute('value',zData['ID:']);
@@ -114,7 +115,9 @@ submitBtn.addEventListener('click', (event) => {
     zData['Course1:'] = course1Select.value;
     zData['Course2:'] = course2Select.value;
     zData['Course3:'] = course3Select.value;
-    localStorage.setItem('studentInfo',JSON.stringify(zData));
+    let allStudent = JSON.parse(localStorage.getItem('studentInfo'));
+    allStudent[idNumberInput.value] = zData;
+    localStorage.setItem('studentInfo',JSON.stringify(allStudent));
  
     
     const myPromis = new Promise((resolveFunction,reject)=>{
