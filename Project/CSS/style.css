@@ -236,8 +236,8 @@ nav .container .bars {
     position: absolute;
     top: 100%;
     background: var(--mainColor);
-    left: 0;
-    width: 100%;
+    left: -2.5%;
+    width: 105%;
     justify-content: center;
   }
 

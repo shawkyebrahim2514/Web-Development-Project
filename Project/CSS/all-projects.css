@@ -61,7 +61,7 @@ nav h1 {
 .container > div {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
+    gap: 35px;
 }
 
 .container > div > figure {
@@ -71,6 +71,26 @@ nav h1 {
     margin: 0;
     border-radius: 15px;
     padding: 0 0 4px 0;
+    counter-increment: figure-counter;
+    position: relative;
+}
+
+.container > div > figure::before {
+    content: counter(figure-counter);
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: -20px;
+    left: -20px;
+    background-color: var(--darkColor-1);
+    color: var(--lightColor-3);
+    z-index: 2;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.5em;
 }
 
 .container > div figure figcaption{
@@ -97,6 +117,7 @@ nav h1 {
     overflow: hidden;
     border-radius: 15px 15px 0 0;
     height: 300px;
+    border: 2px solid black;
     object-fit: cover;
 }
 

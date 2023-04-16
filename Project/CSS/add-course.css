@@ -4,7 +4,8 @@ h1 {
 }
 
 section:has(form) .container {
-  width: 55%;
+  width: 95%;
+  max-width: 950px;
   background-color: var(--darkColor-3);
   box-shadow: var(--boxShadow);
   border-radius: var(--bs-border-radius);
