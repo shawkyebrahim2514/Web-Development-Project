@@ -78,8 +78,8 @@ nav h1 {
 .container > div > figure::before {
     content: counter(figure-counter);
     position: absolute;
-    width: 50px;
-    height: 50px;
+    width: 35px;
+    height: 35px;
     top: -20px;
     left: -20px;
     background-color: var(--darkColor-1);
@@ -90,7 +90,7 @@ nav h1 {
     justify-content: center;
     align-items: center;
     font-weight: 600;
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 .container > div figure figcaption{
@@ -100,6 +100,10 @@ nav h1 {
     font-size: 1.4em;
     text-align: center;
     font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5px;
 }
 
 .container > div img {
@@ -116,7 +120,7 @@ nav h1 {
     position: relative;
     overflow: hidden;
     border-radius: 15px 15px 0 0;
-    height: 300px;
+    height: 36vh;
     border: 2px solid black;
     object-fit: cover;
 }
