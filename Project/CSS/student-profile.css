@@ -68,6 +68,7 @@ h1 {
     height: 150px;
     border-radius: 30%;
     overflow: hidden;
+    position: relative;
 }
 
 #file{
@@ -82,7 +83,7 @@ h1 {
     height: fit-content;
     position: absolute;
     left:139px;
-    top:140px;
+    top:219px;
     text-align: center;
     line-height: 30px;
     background-color: var(--darkColor);
