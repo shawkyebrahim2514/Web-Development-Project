@@ -10,6 +10,7 @@ h1 {
     text-align: center;
     font-size: 2em;
     margin-bottom: 40px;
+    margin-top: 10px;
 }
 
 .all-layers{
@@ -19,7 +20,7 @@ h1 {
     text-align: center;
     align-content: center;
     padding: 0px 50px 0 128px;
-    margin: 64px 165px 0 110px;
+    margin: 40px 165px 0 110px;
 }
 
 .content-table{
@@ -35,20 +36,20 @@ h1 {
 }
 
 .content-table tr:nth-child(even){
-    background-color: #ffffff;
+    background-color: var(--lightColor-3);
 }
 
 .content-table tr:last-of-type{
-    border-bottom: 4px solid var(--mainColor);
+    border-bottom: 4px solid var(--lightColor-2);
 }
 
 .content-table tr{
-    background-color: var(--lightColor);
-    border-bottom: 1px solid var(--darkColor);
+    background-color: var(--lightColor-4);
+    border-bottom: 1px solid var(--darkColor-3);
 }
 
 .content-table th{
-    color : var(--darkColor);
+    color : var(--darkColor-1);
     text-align: left;
     font-weight: 500;
 }
@@ -60,7 +61,7 @@ h1 {
 }
 
 .content-table th:hover,tr:hover,td:hover{
-    color:var(--mainColor)
+    color:var(--lightColor-2)
 }
 
 .profile-pic img{
@@ -83,21 +84,32 @@ h1 {
     height: fit-content;
     position: absolute;
     left:139px;
-    top:219px;
+    top:178px;
     text-align: center;
     line-height: 30px;
-    background-color: var(--darkColor);
+    background-color: var(--darkColor-1);
     border-radius: 5px;
-    color: var(--lightColor);
+    color: var(--lightColor-1);
     font-size: 16px;
     font-weight: 50;
     transform: translate(50px,50px);
     cursor: pointer;
     display: none;
 }
+
 .btn{
     width: 160px;
 }
+
+.btn:hover{
+    color:var(--lightColor-2);
+    transition: 0.015s;
+}
+
+.btn:hover::after {
+    opacity: 0.1;
+  }
+  
 .btn i{
     top:32%;
 }

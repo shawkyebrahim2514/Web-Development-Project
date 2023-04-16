@@ -96,6 +96,29 @@ departmentSelect.addEventListener('change', () => {
     populateCourses(departmentSelect, course1Select, course2Select, course3Select);
 });
 
+let deleteBtn = document.getElementById('delete-btn');
+deleteBtn.addEventListener('click',()=>{
+    let confirmationMsg = window.prompt('Enter ID for Confirmation','2021xxxx');
+    if(confirmationMsg != null){
+        if(confirmationMsg == idNumberInput.value){
+            let allStudent = JSON.parse(window.localStorage.getItem('studentInfo'));
+            delete allStudent[idNumberInput.value];
+            localStorage.setItem('studentInfo', JSON.stringify(allStudent));
+            location.href = "student-page.html";
+        }
+        else{
+            window.alert('ID is not Correct !');
+        }
+    }
+})
+
+
+
+
+
+
+
+
 // prevent default form submission behavior, validate form data, and log form data to console
 submitBtn.addEventListener('click', (event) => {
     event.preventDefault();
