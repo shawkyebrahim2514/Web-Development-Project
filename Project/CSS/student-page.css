@@ -5,7 +5,7 @@
 
 h1 {
     text-align: center;
-    color: #016FB9;
+    color: var(--mainColor);
 }
 
 table {
@@ -13,8 +13,8 @@ table {
     padding: 10px;
     border-style: solid;
     border-radius: 0.375rem;
-    background-color: #F8F7F9;
-    border-color: #016FB9;
+    background-color: var(--lightColor-4);
+    border-color: var(--mainColor);
     width: 70%;
     margin-left: auto;
     margin-right: auto;
@@ -27,7 +27,7 @@ th {
 
 td {
     padding-left: 10px;
-    color: #016FB9;
+    color: var(--lightColor-2);
 }
 
 select {
@@ -36,8 +36,8 @@ select {
     padding: 10px;
     padding-left: 20px;
     border-radius: 0.375rem;
-    color:#F8F7F9;
-    background-color: #016FB9;
+    color:var(--lightColor-1);
+    background-color: var(--mainColor);
     width: 120px;
     position: relative;
 }

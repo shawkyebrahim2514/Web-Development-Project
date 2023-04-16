@@ -11,7 +11,7 @@ let val = JSON.stringify(   //(REMOVE WHEN INTEGRATING)
 
 window.localStorage.setItem("Users", val); //adding students to local storage (REMOVE WHEN INTEGRATING)
 
-let studs = JSON.parse(window.localStorage.getItem("Users")); //parsing the local storage to get students
+let studs = JSON.parse(window.localStorage.getItem('studentInfo')); //parsing the local storage to get students
 let studarr = [];
 
 let ids = Object.keys(studs); //Object keys to access instances of students
@@ -31,21 +31,23 @@ for (let i = 0; i < ids.length; i++) {      //adding all students to page layout
         "<option selected>Inactive</option>" 
     ];
     let j = 0;
-    if (studs[ids[i]].status == "I") {      //adding the status value based on student status
+    if (studs[ids[i]]['Status:'] == "Inactive") {      //adding the status value based on student status
         j = 1;
     }
     document.getElementById("studT").innerHTML
-    += "<div id=\"stud\"><tr><td>"+studs[ids[i]].fname+"</td><td>"+studs[ids[i]].lname+"</td><td id=\"sid\">"+studs[ids[i]].id+"</td>"+"<td><select id=\"chosen\" >"+stts[j]+stts[j+2]+"</select></td></tr></div>";
+    += "<div id=\"stud\"><tr><td>"+studs[ids[i]]['Name:'].split(' ')[0]+"</td><td>"+studs[ids[i]]['Name:'].split(' ')[1]+"</td><td id=\"sid\">"+studs[ids[i]]['ID:']+"</td>"+"<td><select id=\"chosen\" >"+stts[j]+stts[j+2]+"</select></td></tr></div>";
 }
 
 addEventListener("change", function() {    //updating values in local storage when changing status from dropdown list
-    let st = document.getElementById("chosen").value.charAt(0);
+    let st = document.getElementById("chosen").value;
     let id = document.getElementById("sid").innerText;
-    studs[id].status = st;
+    studs[id]['Status:'] = st;
+    let allStudent = JSON.parse(this.window.localStorage.getItem('studentInfo'));
+    allStudent[id]['Status:'] = st;
     console.log(studs);
-    val = JSON.stringify(studs);
-    window.localStorage.removeItem("Users");
-    window.localStorage.setItem("Users", val);
+    // val = JSON.stringify(studs);
+    // window.localStorage.removeItem("Users");
+    window.localStorage.setItem("studentInfo", JSON.stringify(allStudent));
 })
 
 //________________________________________________
@@ -54,8 +56,8 @@ const searchIn = document.querySelector("[data-search]");
 searchIn.addEventListener("input", v => {
     const searchText = (v.target.value).toLowerCase();
     let matchingstud = studarr.filter( stud => {
-            const fullName = (stud.fname + stud.lname).toLowerCase();
-            return fullName.includes(searchText)||stud.id.includes(searchText);
+            const fullName = (stud['Name:'].split(' ')[0] + stud['Name:'].split(' ')[1]).toLowerCase();
+            return fullName.includes(searchText)||stud['ID:'].includes(searchText);
         }
     );
     document.getElementById("studT").innerHTML = "<table id=\"studT\"><div class=\"tablehead\"><tr><th>First Name</th><th>Last Name</th><th>Student ID</th><th>Activity Status</th></tr></div></table>";
@@ -72,10 +74,10 @@ function displayValid(studarray) {
             "<option selected>Inactive</option>" 
         ];
         let j = 0;
-        if (studarray[i].status == "I") {      //adding the status value based on student status
+        if (studarray[i]['Status'] == "Inactive") {      //adding the status value based on student status
             j = 1;
         }
         document.getElementById("studT").innerHTML
-        += "<div id=\"stud\"><tr><td>"+studarray[i].fname+"</td><td>"+studarray[i].lname+"</td><td id=\"sid\">"+studarray[i].id+"</td>"+"<td><select id=\"chosen\" >"+stts[j]+stts[j+2]+"</select></td></tr></div>";
+        += "<div id=\"stud\"><tr><td>"+studarray[i]['Name:'].split(' ')[0]+"</td><td>"+studarray[i]['Name:'].split(' ')[1]+"</td><td id=\"sid\">"+studarray[i]['ID:']+"</td>"+"<td><select id=\"chosen\" >"+stts[j]+stts[j+2]+"</select></td></tr></div>";
     }
 }

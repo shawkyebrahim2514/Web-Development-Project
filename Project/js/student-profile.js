@@ -31,7 +31,7 @@ buttonView.onclick = function(){
 };
 
 buttonSearch.onclick = function(){
-    location.href = "searching-page.html";
+    location.href = "student-page.html";
 };
 
 
