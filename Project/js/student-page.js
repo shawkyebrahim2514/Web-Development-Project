@@ -20,7 +20,7 @@ let ids = Object.keys(studs); //Object keys to access instances of students
 for (let i = 0; i < ids.length; i++) {
     studarr.push(studs[ids[i]]);
 }
- 
+
 console.log(studs);      //printing students to test
 
 for (let i = 0; i < ids.length; i++) {      //adding all students to page layout
