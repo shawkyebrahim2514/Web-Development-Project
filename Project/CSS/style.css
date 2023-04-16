@@ -319,7 +319,6 @@ section.message > .container {
 }
 
 section.message > .container > div {
-  background-color: red;
   margin: 0 auto;
   display: none;
   padding: calc(var(--padding-y) * 2) calc(var(--padding-x) * 2);
@@ -329,13 +328,13 @@ section.message > .container > div {
   font-size: 1.1em;
 }
 
-section.message > .container > .warning {
+section.message > .container  > .warning {
   background-color: #fceaea;
   border: 2px solid #ef5350;
   color: #ef5350;
 }
 
-section.message > .container > .successful {
+section.message > .container  > .successful {
   background-color: #e9fbf0;
   border: 2px solid #0f5c2e;
   color: #0f5c2e;

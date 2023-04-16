@@ -17,8 +17,16 @@ if (window.localStorage.getItem("admins") == null) {
   window.localStorage.setItem("admins", JSON.stringify(admins));
 }
 
-if(window.localStorage.getItem("loggedAdmin") != null){
-    window.location.href = "../admin-panel.html";
+if (window.localStorage.getItem("warnning") != null) {
+  document.getElementsByClassName("message")[0].style.display = "block";
+  let warnningMessage = document.getElementsByClassName("warnning")[0];
+  warnningMessage.innerHTML = window.localStorage.getItem("warnning");
+  warnningMessage.style.display = "block";
+  window.localStorage.removeItem("warnning");
+}
+
+if (window.localStorage.getItem("loggedAdmin") != null) {
+  window.location.href = "../admin-panel.html";
 }
 
 function loginAdmin() {
