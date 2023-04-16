@@ -8,3 +8,7 @@ function toggleBars() {
     state.classList.add('inactive')
   }
 }
+
+if(window.localStorage.getItem("loggedAdmin") == null){
+  window.location.href = "../login-page-admin.html";
+}
