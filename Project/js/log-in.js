@@ -26,7 +26,7 @@ if (window.localStorage.getItem("warning") != null) {
 }
 
 if (window.localStorage.getItem("loggedAdmin") != null) {
-  window.location.href = "../admin-panel.html";
+  window.location.href = "admin-panel.html";
 }
 
 function loginAdmin() {

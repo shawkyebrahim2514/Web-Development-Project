@@ -41,7 +41,7 @@
     font-size: 15px;
     padding: 8px 10px;
     border-radius: 3px;
-    transition: all 0.3s ease;
+    /* transition: all 0.3s ease; */
 }
 
 .wrapper .form .input_field .custom_select {
@@ -92,3 +92,22 @@
     height: 15px;
     transform: translate(0px, 3px);
 }
+
+.wrapper .form .input_field input:not([type = 'submit'], [type = 'reset']), .wrapper .form .input_field .custom_select select {
+    appearance: none;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    /*border: 1px solid var(--mainColor);*/
+    box-shadow: var(--boxShadow);
+    background: white;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: var(--bs-border-radius);
+  }
+  
+.wrapper .form .input_field input:not([type = 'submit'], [type = 'reset']):focus-visible {
+    border: 1px solid var(--lightColor-2);
+
+    box-shadow: none;
+  }

@@ -6,5 +6,5 @@ lastName.innerHTML = JSON.parse(loggedAdmin).lastName;
 
 function logoutAdmin() {
     window.localStorage.removeItem("loggedAdmin");
-    window.location.href = "../login-page-admin.html";
+    window.location.href = "login-page-admin.html";
 }

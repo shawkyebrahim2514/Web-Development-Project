@@ -1,34 +1,42 @@
+let allDepartment = JSON.parse(window.localStorage.getItem('allDepartments'));
+
+// get form elements
+const fullNameInput = document.getElementById('full-name');
+const idNumberInput = document.getElementById('id-number');
+const dobInput = document.getElementById('dob');
+const universityInput = document.getElementById('university');
+const genderSelect = document.getElementById('gender');
+const statusSelect = document.getElementById('status');
+const departmentSelect = document.getElementById('department');
+const course1Select = document.getElementById('course1');
+const course2Select = document.getElementById('course2');
+const course3Select = document.getElementById('course3');
+const submitBtn = document.getElementById('submit-btn');
+
+
 // define arrays of available courses for each department
-const isCourses = ['IS101', 'IS201', 'IS301', 'IS401'];
-const csCourses = ['CS101', 'CS201', 'CS301', 'CS401'];
-const aiCourses = ['AI101', 'AI201', 'AI301', 'AI401'];
-const itCourses = ['IT101', 'IT201', 'IT301', 'IT401'];
-const dsCourses = ['DS101', 'DS201', 'DS301', 'DS401'];
+// const isCourses = ['IS101', 'IS201', 'IS301', 'IS401'];
+// const csCourses = ['CS101', 'CS201', 'CS301', 'CS401'];
+// const aiCourses = ['AI101', 'AI201', 'AI301', 'AI401'];
+// const itCourses = ['IT101', 'IT201', 'IT301', 'IT401'];
+// const dsCourses = ['DS101', 'DS201', 'DS301', 'DS401'];
 
 // define function to populate courses select element based on selected department
+for(dep in allDepartment){
+    const option = document.createElement('option');
+    option.text = dep;
+    option.value = dep;
+    departmentSelect.add(option);
+}
+
+
+
 function populateCourses(departmentSelect, courseSelect1, courseSelect2, courseSelect3) {
     // get selected department value
     const department = departmentSelect.value;
 
     // determine which array of courses to use based on selected department
-    let courses = [];
-    switch (department) {
-        case 'IS':
-            courses = isCourses;
-            break;
-        case 'CS':
-            courses = csCourses;
-            break;
-        case 'AI':
-            courses = aiCourses;
-            break;
-        case 'IT':
-            courses = itCourses;
-            break;
-        case 'DS':
-            courses = dsCourses;
-            break;
-    }
+    let courses = allDepartment[department];
 
     // display courses in course select elements
     courseSelect1.innerHTML = '';
@@ -45,18 +53,7 @@ function populateCourses(departmentSelect, courseSelect1, courseSelect2, courseS
 }
 
 
-// get form elements
-const fullNameInput = document.getElementById('full-name');
-const idNumberInput = document.getElementById('id-number');
-const dobInput = document.getElementById('dob');
-const universityInput = document.getElementById('university');
-const genderSelect = document.getElementById('gender');
-const statusSelect = document.getElementById('status');
-const departmentSelect = document.getElementById('department');
-const course1Select = document.getElementById('course1');
-const course2Select = document.getElementById('course2');
-const course3Select = document.getElementById('course3');
-const submitBtn = document.getElementById('submit-btn');
+
 
 // populate courses select elements when department is changed
 departmentSelect.addEventListener('change', () => {
@@ -134,7 +131,6 @@ submitBtn.addEventListener('click', (event) => {
         return;
     }
 
-
     const formData = {
         'Full Name': fullNameInput.value,
         'ID': idNumberInput.value,
@@ -148,9 +144,29 @@ submitBtn.addEventListener('click', (event) => {
         'Course 3': course3Select.value
     };
     // save form data in local storage
-    localStorage.setItem('formData', JSON.stringify(formData));
-    console.log(formData);
-    window.location.replace("./main-page")
+
+    if(!window.localStorage.getItem('studentInfo')){
+        localStorage.setItem('studentInfo', '{}');
+    }
+
+    let allStudent = JSON.parse(window.localStorage.getItem('studentInfo'));
+    let zData = {};
+    zData['Name:'] = fullNameInput.value;
+    zData['ID:'] = idNumberInput.value;
+    zData['Date of Birth:'] = dobInput.value;
+    zData['University:'] = universityInput.value;
+    zData['Gender:'] = genderSelect.value;
+    zData['Status:']= statusSelect.value;
+    zData['Department:'] = departmentSelect.value;
+    zData['Course1:'] = course1Select.value;
+    zData['Course2:'] = course2Select.value;
+    zData['Course3:'] = course3Select.value;
+
+    allStudent[idNumberInput.value] = zData;
+    window.localStorage.setItem('studentInfo', JSON.stringify(allStudent));
+    // localStorage.setItem('formData', JSON.stringify(formData));
+    // console.log(formData);
+    window.location.replace("./main-page.html")
 
 });
 
