@@ -76,20 +76,3 @@ tbody tr:hover{
     align-items: flex-start;
     justify-content: center;
 }
-
-.btn{
-    width: 160px;
-}
-
-.btn:hover{
-    color:var(--lightColor-2);
-    transition: 0.015s;
-}
-
-.btn:hover::after {
-    opacity: 0.1;
-  }
-  
-.btn i{
-    top:50%;
-}
