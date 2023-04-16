@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;500;700;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,900;1,300;1,400;1,900&display=swap");
 
 * {
   box-sizing: border-box;
@@ -8,28 +8,37 @@ body {
   margin: 0;
 }
 
+::selection {
+  background-color: var(--lightColor-2);
+  color: var(--lightColor-3)
+}
+
 :root {
   --padding-x: 20px;
   --padding-y: 10px;
-  --mainColor: #1565c0;
-  --lightColor: #f8f7f9;
-  --darkColor: #0b2027;
+  --mainColor: #02020b;
+  --lightColor-1: #ece4b7;
+  --lightColor-2: #e6aa68;
+  --lightColor-3: #ffffff;
+  --darkColor-1: #191921;
+  --darkColor-2: #303037;
+  --darkColor-3: #f9f9f9;
   --dangerColor: #ef5350;
   --bs-border-width: 1px;
   --bs-border-radius: 0.375rem;
   --mainTransition: 0.5s;
-  --boxShadow: 1px 1px 2px #d6d6d6;
-  font-family: 'Rubik', sans-serif;
-  font-weight: 500;
+  --boxShadow: 1px 1px 2px var(--darkColor-2);
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
   color: var(--darkColor);
 }
 
 .btn {
   --bs-btn-padding-x: 0.75rem;
-  --bs-btn-padding-y: 0.650rem;
+  --bs-btn-padding-y: 0.65rem;
   --bs-btn-font-weight: 400;
   --bs-btn-line-height: 1.5;
-  --bs-btn-color: var(--lightColor);
+  --bs-btn-color: var(--lightColor-3);
   --bs-btn-bg: var(--mainColor);
   --bs-btn-border-width: var(--bs-border-width);
   --bs-btn-border-color: transparent;
@@ -43,10 +52,12 @@ body {
   border: none;
   border-radius: var(--bs-btn-border-radius);
   background-color: var(--bs-btn-bg);
-  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   width: 120px;
   position: relative;
-  font-size: 1em;
+  font-size: 1.2em;
+  font-weight: 400;
 }
 
 .btn span {
@@ -88,7 +99,7 @@ body {
 
 .btn::after {
   content: "";
-  background-color: var(--darkColor);
+  background-color: var(--lightColor-3);
   opacity: 0;
   position: absolute;
   width: 100%;
@@ -99,12 +110,11 @@ body {
 }
 
 .btn:hover::after {
-  opacity: 0.08;
+  opacity: 0.2;
 }
 
 .container {
-  width: 90%;
-  max-width: 1200px;
+  width: 95%;
   padding: 10px 20px;
   margin: auto;
 }
@@ -118,6 +128,9 @@ nav {
   left: 0;
   right: 0;
   z-index: 2;
+  color: var(--lightColor-3);
+  font-weight: 400;
+  font-size: 1.2em;
 }
 
 nav .container {
@@ -126,9 +139,17 @@ nav .container {
   position: relative;
 }
 
+nav .container .logo {
+  height: 50px;
+  position: absolute;
+  left: 0;
+}
+
 nav .container .links {
   transition: var(--mainTransition);
   transform-origin: top center;
+  display: flex;
+  justify-content: flex-end;
 }
 
 nav .container .links ul {
@@ -155,6 +176,7 @@ nav .container .links .main-list > a {
   display: inline-block;
   position: relative;
   text-align: center;
+  transition: var(--mainTransition);
 }
 
 /* Transaction from left to right */
@@ -182,12 +204,16 @@ nav .container .links .main-list > a::after {
   bottom: -3px;
   height: 2px;
   transition: var(--mainTransition);
-  background-color: var(--lightColor);
+  background-color: var(--lightColor-2);
 }
 
 nav .container .links .main-list:hover > a::after {
   width: 100%;
   left: 0;
+}
+
+nav .container .links .main-list:hover > a {
+  color: var(--lightColor-2);
 }
 
 /* bars */
@@ -196,11 +222,12 @@ nav .container .bars {
   position: relative;
   width: 30px;
   height: 18px;
+  margin: calc(var(--padding-y) * 1.5) var(--padding-x);
   cursor: pointer;
   display: none;
 }
 
-@media (max-width: 690px) {
+@media (max-width: 862px) {
   nav .container .bars {
     display: inline-block;
   }
@@ -209,8 +236,9 @@ nav .container .bars {
     position: absolute;
     top: 100%;
     background: var(--mainColor);
-    left: 0;
-    width: 100%;
+    left: -2.5%;
+    width: 105%;
+    justify-content: center;
   }
 
   nav .container .bars.inactive ~ .links {
@@ -243,7 +271,7 @@ nav .container .bars span {
   position: absolute;
   height: 2px;
   left: 0;
-  background-color: var(--lightColor);
+  background-color: var(--lightColor-3);
   width: 100%;
   transition: 0.5s;
   border-radius: 10px;
