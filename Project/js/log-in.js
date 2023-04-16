@@ -26,7 +26,7 @@ if (window.localStorage.getItem("warnning") != null) {
 }
 
 if (window.localStorage.getItem("loggedAdmin") != null) {
-  window.location.href = "../admin-panel.html";
+  window.location.href = "admin-panel.html";
 }
 
 function loginAdmin() {
@@ -39,7 +39,7 @@ function loginAdmin() {
         "loggedAdmin",
         JSON.stringify(allAdmins[idNumberInput])
       );
-      window.location.href = "../admin-panel.html";
+      window.location.href = "admin-panel.html";
     }
   }
 }
