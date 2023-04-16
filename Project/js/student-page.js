@@ -1,15 +1,18 @@
-let val = JSON.stringify(   //(REMOVE WHEN INTEGRATING)
-    {
-        "20210755" : {"id":"20210755", "fname":"Alan","lname":"Samir", "status":"A"},
-        "20210184" : {"id":"20210184", "fname":"Shawky","lname":"Ibrahim", "status":"I"},
-        "20210368" : {"id":"20210368", "fname":"Mahmoud","lname":"Sakr", "status":"I"},
-        "20210346" : {"id":"20210346", "fname":"Mohamed","lname":"Essam", "status":"A"},
-        "20211033" : {"id":"20211033", "fname":"Khaled","lname":"Salah", "status":"A"},
-        "20210485" : {"id":"20210485", "fname":"Youssef","lname":"Mourad", "status":"A"},
-    }
-)
+// let val = JSON.stringify(   //(REMOVE WHEN INTEGRATING)
+//     {
+//         "20210755" : {"id":"20210755", "fname":"Alan","lname":"Samir", "status":"A"},
+//         "20210184" : {"id":"20210184", "fname":"Shawky","lname":"Ibrahim", "status":"I"},
+//         "20210368" : {"id":"20210368", "fname":"Mahmoud","lname":"Sakr", "status":"I"},
+//         "20210346" : {"id":"20210346", "fname":"Mohamed","lname":"Essam", "status":"A"},
+//         "20211033" : {"id":"20211033", "fname":"Khaled","lname":"Salah", "status":"A"},
+//         "20210485" : {"id":"20210485", "fname":"Youssef","lname":"Mourad", "status":"A"},
+//     }
+// )
 
-window.localStorage.setItem("Users", val); //adding students to local storage (REMOVE WHEN INTEGRATING)
+// window.localStorage.setItem("Users", val); //adding students to local storage (REMOVE WHEN INTEGRATING)
+if(!window.localStorage.getItem('studentInfo')){
+    window.localStorage.setItem('studentInfo','{}');
+}
 
 let studs = JSON.parse(window.localStorage.getItem('studentInfo')); //parsing the local storage to get students
 let studarr = [];
@@ -26,27 +29,26 @@ console.log(studs);      //printing students to test
 for (let i = 0; i < ids.length; i++) {      //adding all students to page layout
     let stts = [
         "<option selected>Active</option>",
-        "<option>Active</option>",
+        "<option selected>Inactive</option>",
         "<option>Inactive</option>",
-        "<option selected>Inactive</option>" 
+        "<option>Active</option>" 
     ];
     let j = 0;
     if (studs[ids[i]]['Status:'] == "Inactive") {      //adding the status value based on student status
         j = 1;
     }
     document.getElementById("studT").innerHTML
-    += "<div id=\"stud\"><tr><td>"+studs[ids[i]]['Name:'].split(' ')[0]+"</td><td>"+studs[ids[i]]['Name:'].split(' ')[1]+"</td><td id=\"sid\">"+studs[ids[i]]['ID:']+"</td>"+"<td><select id=\"chosen\" >"+stts[j]+stts[j+2]+"</select></td></tr></div>";
+    += "<div id=\"stud\"><tr><td>"+studs[ids[i]]['Name:'].split(' ')[0]+"</td><td>"+studs[ids[i]]['Name:'].split(' ')[1]+"</td><td id=\"sid\">"+studs[ids[i]]['ID:']+"</td>"+"<td><select class=\"chosen\" >"+stts[j]+stts[j+2]+"</select></td></tr></div>";
 }
 
 addEventListener("change", function() {    //updating values in local storage when changing status from dropdown list
-    let st = document.getElementById("chosen").value;
-    let id = document.getElementById("sid").innerText;
-    studs[id]['Status:'] = st;
+    let stds = this.document.getElementsByClassName("chosen");
     let allStudent = JSON.parse(this.window.localStorage.getItem('studentInfo'));
-    allStudent[id]['Status:'] = st;
+    for(let i = 0; i < ids.length; i++){
+        studs[ids[i]]['Status:'] = stds[i].value;
+        allStudent[ids[i]]['Status:'] = stds[i].value;
+    }
     console.log(studs);
-    // val = JSON.stringify(studs);
-    // window.localStorage.removeItem("Users");
     window.localStorage.setItem("studentInfo", JSON.stringify(allStudent));
 })
 

@@ -1,24 +1,7 @@
-let val = JSON.stringify(   //(REMOVE WHEN INTEGRATING)
-    {
-        "20210485": {
-            "id": "20210485", "name": "Youssef Morad", "dateOfBirth": "2000-03-25",
-            "gender": "M", "dep": "Computer Science", "status": "A", "course1": "Programming 1", "course2": "Math 1",
-            "course3": "Software Engineering"
-        },
-        "20210056": {
-            "id": "20210056", "name": "Shaban Mohsen", "dateOfBirth": "2003-12-13",
-            "gender": "M", "dep": "Information System", "status": "I", "course1": "Data Structure",
-            "course2": "Data Base 1", "course3": "Management"
-        },
-        "20210134": {
-            "id": "20210534", "name": "Mahmoud Sakr", "dateOfBirth": "2003-06-21",
-            "gender": "M", "dep": "Artificial Intelligence", "status": "A", "course1": "Machine Learning",
-            "course2": "Algorithms", "course3": "Data Base 2"
-        },
-    }
-);
-
-let data = JSON.parse(val);
+if(!window.localStorage.getItem('studentInfo')){
+    window.localStorage.setItem('studentInfo','{}');
+}
+let data = JSON.parse(window.localStorage.getItem('studentInfo'));
 
 mainTable = document.getElementsByClassName("main_table")[0].getElementsByTagName("tbody")[0];
 
@@ -27,20 +10,46 @@ for (const valKey in data) {
     let newRow = mainTable.insertRow(-1);
     for (const newRowKey in data[valKey]) {
         let newCell = newRow.insertCell();
-        if (newRowKey === "gender") {
-            if (data[valKey][newRowKey] === "M")
-                newCell.innerHTML = "Male";
-            else
-                newCell.innerHTML = "Female";
-        }
-        else if(newRowKey === "status"){
-            if (data[valKey][newRowKey] === "A")
-                newCell.innerHTML = "Active";
-            else
-                newCell.innerHTML = "Inactive";
-        }
-        else {
-            newCell.innerHTML = data[valKey][newRowKey];
-        }
+        newCell.innerHTML = data[valKey][newRowKey];
     }
+}
+
+let searchBtn = document.getElementById('search-btn')
+searchBtn.addEventListener('click', ()=>{
+    window.location.href = "student-page.html";
+})
+
+
+let tableHeaders = document.getElementsByTagName('tr');
+
+for(let i = 1; i < tableHeaders.length; ++i){
+    tableHeaders[i].addEventListener('click',function(){
+        // let tempData = y.children[i];
+        // let zData = {};
+        let tableData = tableHeaders[i];
+        // zData['Name:'] = tableData.children[0].innerHTML;
+        // zData['ID:'] = tableData.children[1].innerHTML;
+        // zData['Date of Birth:'] = tableData.children[2].innerHTML;
+        // zData['University:'] = tableData.children[3].innerHTML;
+        // zData['Gender:'] = tableData.children[4].innerHTML;
+        // zData['Status:']= tableData.children[5].innerHTML;
+        // zData['Department:'] = tableData.children[6].innerHTML;
+        // zData['Course1:'] = tableData.children[7].innerHTML;
+        // zData['Course2:'] = tableData.children[8].innerHTML;
+        // zData['Course3:'] = tableData.children[9].innerHTML;
+        // let allStudent = JSON.parse(window.localStorage.getItem('studentInfo'));
+        // allStudent[tableData.children[1].innerHTML] = zData;
+        // window.localStorage.setItem('studentInfo',JSON.stringify(allStudent));
+
+        const page = window.open('student-profile.html');
+        page.addEventListener('DOMContentLoaded', () => {
+            // Now we can access the #test element on the other page
+            for(let j = 0; j < 10; j++){
+                page.document.getElementsByTagName('tr')[j].children[1].innerHTML = tableData.children[j].innerHTML;
+            }
+        })
+        // alert(this.rowIndex);
+
+        // window.location.href='student-profile.html';
+    }); 
 }

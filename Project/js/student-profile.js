@@ -23,6 +23,7 @@ buttonEdit.onclick = function(){
     localStorage.setItem('studentInfo',JSON.stringify(allStudents));
     // TO GET STUDENT INFO By ID.
     // let z = JSON.parse(JSON.parse(localStorage.getItem('studentInfo'))[20210346])
+    window.localStorage.setItem('currentID',data[1].innerHTML);
     location.href = "edit-page.html";
 };
 
@@ -94,11 +95,12 @@ file.addEventListener('change', function(){
 // let data9 = localStorage.getItem('Course 2');
 // let data10 = localStorage.getItem('Course 3');
 
-let data = document.getElementsByTagName('td');
+
+let currentID = localStorage.getItem('currentID');
 
 if(window.localStorage.getItem('studentInfo')){
-    
-    let zData = JSON.parse(localStorage.getItem('studentInfo'))[data[1].innerHTML];
+    let data = document.getElementsByTagName('td');
+    let zData = JSON.parse(localStorage.getItem('studentInfo'))[currentID];
 
     data[0].innerHTML = zData['Name:'];
     data[1].innerHTML = zData['ID:'];
