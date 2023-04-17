@@ -19,12 +19,11 @@ for (let i = 0; i < ids.length; i++) {      //adding all students to page layout
         "<option selected>Active</option>",
         "<option selected>Inactive</option>",
         "<option>Inactive</option>",
-        "<option>Active</option>" 
+        "<option>Active</option>"
     ];
     let j = 0;
     if (studs[ids[i]]['Status:'] == "Inactive") {      //adding the status value based on student status
         j = 1;
-
         continue;
     }
     document.getElementById("studT").innerHTML
@@ -55,9 +54,10 @@ searchIn.addEventListener("input", v => {
     let matchingstud = studarr.filter( stud => {
             const fullName = (stud['Name:'].split(' ')[0] + stud['Name:'].split(' ')[1]).toLowerCase();
             const fullDep = (stud['Department:'].split(' ')[0] + stud['Department:'].split(' ')[1]).toLowerCase()
-            return fullName.includes(searchText)||stud['ID:'].includes(searchText) || fullDep.includes(searchText);
+            return (fullName.includes(searchText)||stud['ID:'].includes(searchText) || fullDep.includes(searchText)) && stud['Status:'] === 'Active';
         }
     );
+    console.log(matchingstud);
     document.getElementById("studT").innerHTML = "<table id=\"studT\"><div class=\"tablehead\"><tr><th>First Name</th><th>Last Name</th><th>Student ID</th><th>Department</th><th>Activity Status</th></tr></div></table>";
     displayValid(matchingstud);
 })
@@ -67,13 +67,14 @@ function displayValid(studarray) {
     for (let i = 0; i < studarray.length; i++) {      //adding all students to page layout
         let stts = [
             "<option selected>Active</option>",
-            "<option>Active</option>",
+            "<option selected>Inactive</option>",
             "<option>Inactive</option>",
-            "<option selected>Inactive</option>" 
+            "<option>Active</option>"
         ];
         let j = 0;
         if (studarray[i]['Status'] == "Inactive") {      //adding the status value based on student status
             j = 1;
+            console.log('hi');
             location.reload();
             continue;
         }

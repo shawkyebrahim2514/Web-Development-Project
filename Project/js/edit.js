@@ -65,10 +65,10 @@ dobInput.setAttribute('value',zData['Date of Birth:']);
 universityInput.setAttribute('value',zData['University:']);
 genderSelect.value = zData['Gender:'];
 statusSelect.value = zData['Status:'];
-departmentSelect.value = zData['Department:'];
-course1Select.value = zData['Course1:'];
-course2Select.value = zData['Course2:'];
-course3Select.value = zData['Course3:'];
+// departmentSelect.value = zData['Department:'];
+// course1Select.value = zData['Course1:'];
+// course2Select.value = zData['Course2:'];
+// course3Select.value = zData['Course3:'];
 
 // populate courses select elements when department is changed
 departmentSelect.addEventListener('change', () => {
@@ -103,7 +103,13 @@ submitBtn.addEventListener('click', (event) => {
         return;
     }
 
-    if (!fullNameInput.value.match(/^[a-zA-Z]+\s[a-zA-Z]+$/)) {
+
+    if(new Date(dobInput.value).getFullYear() >= new Date(2004, 1 ,1).getFullYear()){
+        alert('Please enter valid birth date.');
+        return;
+    }
+
+    if (!fullNameInput.value.match(/^[a-zA-Z]+(\s[a-zA-Z]+)+$/)) {
         alert('Please enter your full name with at least two separated strings.');
         return;
     }
