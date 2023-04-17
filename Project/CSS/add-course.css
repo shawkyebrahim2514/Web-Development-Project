@@ -35,7 +35,7 @@ section:has(form) .container input:not([type = 'submit'], [type = 'reset']), sec
 }
 
 section:has(form) .container input:not([type = 'submit'], [type = 'reset']):focus-visible {
-  border: 1px solid var(--mainColor);
+  border: 1px solid var(--lightColor-2);
   box-shadow: none;
 }
 
