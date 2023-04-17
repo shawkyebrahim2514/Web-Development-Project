@@ -1,53 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta
+      name="description"
+      content="This is the admin panel of this higher students website"
+    />
+    <title>Student's Admin Panel</title>
+    <!--  Main Style  -->
+    <link rel="stylesheet" href="CSS/style.css" />
+    <!--  Admin panel Style  -->
+    <link rel="stylesheet" href="CSS/admin-panel.css" />
+    <!--  Font Awesome Style  -->
+    <link rel="stylesheet" href="CSS/all.min.css" />
+    <script src="js/main.js"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description" content="This is the admin panel of this higher students website">
-  <title>Student's Admin Panel</title>
-  <!--  Main Style  -->
-  <link rel="stylesheet" href="CSS/style.css">
-  <!--  Admin panel Style  -->
-  <link rel="stylesheet" href="CSS/admin-panel.css">
-  <!--  Font Awesome Style  -->
-  <link rel="stylesheet" href="CSS/all.min.css">
-  <script src="js/main.js"></script>
-
-</head>
-
-<body>
+  <body>
     <!-- Nav-Bar JS -->
     <script src="js/nav-bar.js"></script>
-<section>
-  <div class="container">
-    <h1>Welcome, <span id="firstName"></span> <span id="lastName"></span></h1>
-    <div class="links">
-      <section>
-        <img src="svg/add-course.svg" alt="Add New Course">
-        <a href="add-course.html" class="btn">Add new course</a>
-      </section>
+    <section>
+      <div class="container">
+        <h1>
+          Welcome, <span id="firstName"></span> <span id="lastName"></span>
+        </h1>
+        <div class="links">
+          <section>
+            <img src="svg/add-course.svg" alt="Add New Course" />
+            <a href="add-course.html" class="btn">Add new course</a>
+          </section>
 
-      <section>
-        <img src="svg/add-department.svg" alt="Add New Course">
-        <a href="add-department.html" class="btn">Add new department</a>
-      </section>
+          <section>
+            <img src="svg/add-department.svg" alt="Add New Course" />
+            <a href="add-department.html" class="btn">Add new department</a>
+          </section>
 
-      <section>
-        <img src="svg/add-student.svg" alt="Add New Course">
-        <a href="registration.html" class="btn">Add new Student</a>
-      </section>
+          <section>
+            <img src="svg/add-student.svg" alt="Add New Course" />
+            <a href="registration.html" class="btn">Add new Student</a>
+          </section>
 
-      <section>
-        <img src="svg/student-search.svg" alt="Add New Course">
-        <a href="student-page.html" class="btn">Search about students</a>
-      </section>
-    </div>
-  </div>
-  <button class="btn logout" onclick="logoutAdmin()">Logout</button>
-  <script src="js/admin-panel.js"></script>
-</section>
-</body>
+          <section>
+            <img src="svg/student-search.svg" alt="Add New Course" />
+            <a href="student-page.html" class="btn">Search about students</a>
+          </section>
+        </div>
+      </div>
+      <button class="btn logout" onclick="logoutAdmin()">Logout</button>
+      <script src="js/admin-panel.js"></script>
+    </section>
+  </body>
 </html>
