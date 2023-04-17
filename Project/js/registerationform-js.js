@@ -70,7 +70,12 @@ submitBtn.addEventListener('click', (event) => {
         return;
     }
 
-    if (!fullNameInput.value.match(/^[a-zA-Z]+\s[a-zA-Z]+$/)) {
+    if(new Date(dobInput.value).getFullYear() >= new Date(2004, 1 ,1).getFullYear()){
+        alert('Please enter valid birth date.');
+        return;
+    }
+
+    if (!fullNameInput.value.match(/^[a-zA-Z]+(\s[a-zA-Z]+)+$/)) {
         alert('Please enter your full name with at least two separated strings.');
         return;
     }

@@ -12,19 +12,18 @@ for (let i = 0; i < ids.length; i++) {
     studarr.push(studs[ids[i]]);
 }
 
-console.log(studs);      //printing students to test
+// console.log(studs);      //printing students to test
 
 for (let i = 0; i < ids.length; i++) {      //adding all students to page layout
     let stts = [
         "<option selected>Active</option>",
         "<option selected>Inactive</option>",
         "<option>Inactive</option>",
-        "<option>Active</option>" 
+        "<option>Active</option>"
     ];
     let j = 0;
     if (studs[ids[i]]['Status:'] == "Inactive") {      //adding the status value based on student status
         j = 1;
-
         continue;
     }
     document.getElementById("studT").innerHTML
@@ -44,7 +43,8 @@ addEventListener("change", function() {    //updating values in local storage wh
     }
     console.log(studs);
     window.localStorage.setItem("studentInfo", JSON.stringify(allStudent));
-    this.window.location.href = 'search-page.html';
+    // location.reload();
+    // this.window.location.href = 'student-page.html';
 })
 
 //________________________________________________
@@ -55,9 +55,10 @@ searchIn.addEventListener("input", v => {
     let matchingstud = studarr.filter( stud => {
             const fullName = (stud['Name:'].split(' ')[0] + stud['Name:'].split(' ')[1]).toLowerCase();
             const fullDep = (stud['Department:'].split(' ')[0] + stud['Department:'].split(' ')[1]).toLowerCase()
-            return fullName.includes(searchText)||stud['ID:'].includes(searchText) || fullDep.includes(searchText);
+            return (fullName.includes(searchText)||stud['ID:'].includes(searchText) || fullDep.includes(searchText)) && stud['Status:'] === 'Active';
         }
     );
+    console.log(matchingstud);
     document.getElementById("studT").innerHTML = "<table id=\"studT\"><div class=\"tablehead\"><tr><th>First Name</th><th>Last Name</th><th>Student ID</th><th>Department</th><th>Activity Status</th></tr></div></table>";
     displayValid(matchingstud);
 })
@@ -67,18 +68,18 @@ function displayValid(studarray) {
     for (let i = 0; i < studarray.length; i++) {      //adding all students to page layout
         let stts = [
             "<option selected>Active</option>",
-            "<option>Active</option>",
+            "<option selected>Inactive</option>",
             "<option>Inactive</option>",
-            "<option selected>Inactive</option>" 
+            "<option>Active</option>"
         ];
         let j = 0;
         if (studarray[i]['Status'] == "Inactive") {      //adding the status value based on student status
             j = 1;
-            location.reload();
             continue;
+            // location.reload();
         }
         document.getElementById("studT").innerHTML
         += "<div id=\"stud\"><tr><td>"+studarray[i]['Name:'].split(' ')[0]+"</td><td>"+studarray[i]['Name:'].split(' ')[1]+"</td><td id=\"sid\">"+studarray[i]['ID:']+
-        "</td><td id=\"sid\">"+studarray[i]['Department:']+"</td>"+"<td><select id=\"chosen\" >"+stts[j]+stts[j+2]+"</select></td></tr></div>";
+        "</td><td id=\"sid\">"+studarray[i]['Department:']+"</td>"+"<td><select class=\"chosen\" >"+stts[j]+stts[j+2]+"</select></td></tr></div>";
     }
 }
