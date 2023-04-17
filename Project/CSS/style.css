@@ -10,7 +10,7 @@ body {
 
 ::selection {
   background-color: var(--lightColor-2);
-  color: var(--lightColor-3)
+  color: var(--lightColor-3);
 }
 
 :root {
@@ -228,7 +228,14 @@ nav .container .bars {
   display: none;
 }
 
-@media (max-width: 862px) {
+@media (max-width: 1167px) and (min-width: 1009px) {
+  nav .container {
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 1008px) {
+  /*1167px*/
   nav .container .bars {
     display: inline-block;
   }
@@ -328,13 +335,13 @@ section.message > .container > div {
   font-size: 1.1em;
 }
 
-section.message > .container  > .warning {
+section.message > .container > .warning {
   background-color: #fceaea;
   border: 2px solid #ef5350;
   color: #ef5350;
 }
 
-section.message > .container  > .successful {
+section.message > .container > .successful {
   background-color: #e9fbf0;
   border: 2px solid #0f5c2e;
   color: #0f5c2e;
