@@ -67,3 +67,8 @@
 .wrapper .form .inputfield .btn:hover{
     background: var(--lightColor-2);
 }
+
+nav .container .logo {
+    height: 50px;
+    position: relative;
+}
