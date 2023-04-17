@@ -12,7 +12,7 @@ for (let i = 0; i < ids.length; i++) {
     studarr.push(studs[ids[i]]);
 }
 
-console.log(studs);      //printing students to test
+// console.log(studs);      //printing students to test
 
 for (let i = 0; i < ids.length; i++) {      //adding all students to page layout
     let stts = [
@@ -43,7 +43,8 @@ addEventListener("change", function() {    //updating values in local storage wh
     }
     console.log(studs);
     window.localStorage.setItem("studentInfo", JSON.stringify(allStudent));
-    this.window.location.href = 'student-page.html';
+    // location.reload();
+    // this.window.location.href = 'student-page.html';
 })
 
 //________________________________________________
@@ -74,12 +75,11 @@ function displayValid(studarray) {
         let j = 0;
         if (studarray[i]['Status'] == "Inactive") {      //adding the status value based on student status
             j = 1;
-            console.log('hi');
-            location.reload();
             continue;
+            // location.reload();
         }
         document.getElementById("studT").innerHTML
         += "<div id=\"stud\"><tr><td>"+studarray[i]['Name:'].split(' ')[0]+"</td><td>"+studarray[i]['Name:'].split(' ')[1]+"</td><td id=\"sid\">"+studarray[i]['ID:']+
-        "</td><td id=\"sid\">"+studarray[i]['Department:']+"</td>"+"<td><select id=\"chosen\" >"+stts[j]+stts[j+2]+"</select></td></tr></div>";
+        "</td><td id=\"sid\">"+studarray[i]['Department:']+"</td>"+"<td><select class=\"chosen\" >"+stts[j]+stts[j+2]+"</select></td></tr></div>";
     }
 }
