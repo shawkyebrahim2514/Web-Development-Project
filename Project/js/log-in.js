@@ -17,12 +17,12 @@ if (window.localStorage.getItem("admins") == null) {
   window.localStorage.setItem("admins", JSON.stringify(admins));
 }
 
-if (window.localStorage.getItem("warnning") != null) {
+if (window.localStorage.getItem("warning") != null) {
   document.getElementsByClassName("message")[0].style.display = "block";
-  let warnningMessage = document.getElementsByClassName("warnning")[0];
-  warnningMessage.innerHTML = window.localStorage.getItem("warnning");
-  warnningMessage.style.display = "block";
-  window.localStorage.removeItem("warnning");
+  let warningMessage = document.getElementsByClassName("warning")[0];
+  warningMessage.innerHTML = window.localStorage.getItem("warning");
+  warningMessage.style.display = "block";
+  window.localStorage.removeItem("warning");
 }
 
 if (window.localStorage.getItem("loggedAdmin") != null) {
@@ -40,6 +40,14 @@ function loginAdmin() {
         JSON.stringify(allAdmins[idNumberInput])
       );
       window.location.href = "admin-panel.html";
-    }
-  }
+    } else failedLogin();
+  } else failedLogin();
+}
+
+function failedLogin() {
+  window.localStorage.setItem(
+    "warning",
+    "Wrong ID or Password, Please try again"
+  );
+  window.location.href = "login-page-admin.html";
 }
