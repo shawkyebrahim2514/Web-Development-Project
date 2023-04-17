@@ -44,7 +44,7 @@ addEventListener("change", function() {    //updating values in local storage wh
     }
     console.log(studs);
     window.localStorage.setItem("studentInfo", JSON.stringify(allStudent));
-    this.window.location.href = 'student-page.html';
+    this.window.location.href = 'search-page.html';
 })
 
 //________________________________________________

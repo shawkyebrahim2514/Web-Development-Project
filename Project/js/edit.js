@@ -84,7 +84,7 @@ deleteBtn.addEventListener('click',()=>{
             let allStudent = JSON.parse(window.localStorage.getItem('studentInfo'));
             delete allStudent[idNumberInput.value];
             localStorage.setItem('studentInfo', JSON.stringify(allStudent));
-            location.href = "student-page.html";
+            location.href = "search-page.html";
         }
         else{
             window.alert('ID is not Correct !');

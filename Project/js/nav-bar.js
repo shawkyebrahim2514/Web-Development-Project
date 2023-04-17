@@ -22,7 +22,7 @@ function showNavBar() {
         <li class="main-list"><a href="add-course.html">Add Course</a></li>
         <li class="main-list"><a href="registration.html">Add Student</a></li>
         <li class="main-list"><a href="all-students-page.html">View All</a></li>
-        <li class="main-list"><a href="student-page.html">Search</a></li>
+        <li class="main-list"><a href="search-page.html">Search</a></li>
       </ul>
     </div>
   </div>`);
