@@ -40,7 +40,7 @@ for (let i = 0; i < ids.length; i++) {      //adding all students to page layout
         continue;
     }
     document.getElementById("studT").innerHTML
-    += "<div id=\"stud\"><tr><td>"+studs[ids[i]]['Name:'].split(' ')[0]+"</td><td>"+studs[ids[i]]['Name:'].split(' ')[1]+"</td><td id=\"sid\">"+studs[ids[i]]['ID:']+"</td>"+"<td><select class=\"chosen\" >"+stts[j]+stts[j+2]+"</select></td></tr></div>";
+    += "<div id=\"stud\"><tr><td>"+studs[ids[i]]['Name:'].split(' ')[0]+"</td><td>"+studs[ids[i]]['Name:'].split(' ')[1]+"</td><td id=\"sid\">"+studs[ids[i]]['ID:']+"</td><td id=\"sid\">"+studs[ids[i]]['Department:']+"</td>"+"<td><select class=\"chosen\" >"+stts[j]+stts[j+2]+"</select></td></tr></div>";
 }
 
 addEventListener("change", function() {    //updating values in local storage when changing status from dropdown list
@@ -66,10 +66,11 @@ searchIn.addEventListener("input", v => {
     const searchText = (v.target.value).toLowerCase();
     let matchingstud = studarr.filter( stud => {
             const fullName = (stud['Name:'].split(' ')[0] + stud['Name:'].split(' ')[1]).toLowerCase();
-            return fullName.includes(searchText)||stud['ID:'].includes(searchText);
+            const fullDep = (stud['Department:'].split(' ')[0] + stud['Department:'].split(' ')[1]).toLowerCase()
+            return fullName.includes(searchText)||stud['ID:'].includes(searchText) || fullDep.includes(searchText);
         }
     );
-    document.getElementById("studT").innerHTML = "<table id=\"studT\"><div class=\"tablehead\"><tr><th>First Name</th><th>Last Name</th><th>Student ID</th><th>Activity Status</th></tr></div></table>";
+    document.getElementById("studT").innerHTML = "<table id=\"studT\"><div class=\"tablehead\"><tr><th>First Name</th><th>Last Name</th><th>Student ID</th><th>Department</th><th>Activity Status</th></tr></div></table>";
     displayValid(matchingstud);
 })
 
@@ -89,6 +90,7 @@ function displayValid(studarray) {
             continue;
         }
         document.getElementById("studT").innerHTML
-        += "<div id=\"stud\"><tr><td>"+studarray[i]['Name:'].split(' ')[0]+"</td><td>"+studarray[i]['Name:'].split(' ')[1]+"</td><td id=\"sid\">"+studarray[i]['ID:']+"</td>"+"<td><select id=\"chosen\" >"+stts[j]+stts[j+2]+"</select></td></tr></div>";
+        += "<div id=\"stud\"><tr><td>"+studarray[i]['Name:'].split(' ')[0]+"</td><td>"+studarray[i]['Name:'].split(' ')[1]+"</td><td id=\"sid\">"+studarray[i]['ID:']+
+        "</td><td id=\"sid\">"+studarray[i]['Department:']+"</td>"+"<td><select id=\"chosen\" >"+stts[j]+stts[j+2]+"</select></td></tr></div>";
     }
 }
