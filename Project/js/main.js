@@ -13,3 +13,4 @@ if(window.localStorage.getItem("loggedAdmin") == null){
   window.localStorage.setItem("warnning", "You must login first")
   window.location.href = "login-page-admin.html";
 }
+

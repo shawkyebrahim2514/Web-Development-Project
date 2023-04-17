@@ -27,6 +27,7 @@ for(let i = 1; i < tableHeaders.length; ++i){
         // let tempData = y.children[i];
         // let zData = {};
         let tableData = tableHeaders[i];
+        window.localStorage.setItem('currentID',tableData.children[1].innerHTML);
         // zData['Name:'] = tableData.children[0].innerHTML;
         // zData['ID:'] = tableData.children[1].innerHTML;
         // zData['Date of Birth:'] = tableData.children[2].innerHTML;

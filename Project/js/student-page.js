@@ -36,6 +36,8 @@ for (let i = 0; i < ids.length; i++) {      //adding all students to page layout
     let j = 0;
     if (studs[ids[i]]['Status:'] == "Inactive") {      //adding the status value based on student status
         j = 1;
+
+        continue;
     }
     document.getElementById("studT").innerHTML
     += "<div id=\"stud\"><tr><td>"+studs[ids[i]]['Name:'].split(' ')[0]+"</td><td>"+studs[ids[i]]['Name:'].split(' ')[1]+"</td><td id=\"sid\">"+studs[ids[i]]['ID:']+"</td>"+"<td><select class=\"chosen\" >"+stts[j]+stts[j+2]+"</select></td></tr></div>";
@@ -43,13 +45,18 @@ for (let i = 0; i < ids.length; i++) {      //adding all students to page layout
 
 addEventListener("change", function() {    //updating values in local storage when changing status from dropdown list
     let stds = this.document.getElementsByClassName("chosen");
+    let headerArr = document.getElementsByTagName('tr');
     let allStudent = JSON.parse(this.window.localStorage.getItem('studentInfo'));
-    for(let i = 0; i < ids.length; i++){
-        studs[ids[i]]['Status:'] = stds[i].value;
-        allStudent[ids[i]]['Status:'] = stds[i].value;
+    for(let i = 0, j = 1; i < ids.length; i++){
+        if(headerArr[j].children[2].innerHTML == ids[i]){
+            studs[ids[i]]['Status:'] = stds[j-1].value;
+            allStudent[ids[i]]['Status:'] = stds[j-1].value;
+            j++;
+        }
     }
     console.log(studs);
     window.localStorage.setItem("studentInfo", JSON.stringify(allStudent));
+    this.location.reload();
 })
 
 //________________________________________________
@@ -78,6 +85,8 @@ function displayValid(studarray) {
         let j = 0;
         if (studarray[i]['Status'] == "Inactive") {      //adding the status value based on student status
             j = 1;
+            location.reload();
+            continue;
         }
         document.getElementById("studT").innerHTML
         += "<div id=\"stud\"><tr><td>"+studarray[i]['Name:'].split(' ')[0]+"</td><td>"+studarray[i]['Name:'].split(' ')[1]+"</td><td id=\"sid\">"+studarray[i]['ID:']+"</td>"+"<td><select id=\"chosen\" >"+stts[j]+stts[j+2]+"</select></td></tr></div>";

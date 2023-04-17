@@ -99,20 +99,35 @@ file.addEventListener('change', function(){
 let currentID = localStorage.getItem('currentID');
 
 if(window.localStorage.getItem('studentInfo')){
-    let data = document.getElementsByTagName('td');
-    let zData = JSON.parse(localStorage.getItem('studentInfo'))[currentID];
+    if(localStorage.getItem('currentID')){
+        let data = document.getElementsByTagName('td');
+        let zData = JSON.parse(localStorage.getItem('studentInfo'))[currentID];
 
-    data[0].innerHTML = zData['Name:'];
-    data[1].innerHTML = zData['ID:'];
-    data[2].innerHTML = zData['Date of Birth:'];
-    data[3].innerHTML = zData['University:'];
-    data[4].innerHTML = zData['Gender:'];
-    data[5].innerHTML = zData['Status:'];
-    data[6].innerHTML = zData['Department:'];
-    data[7].innerHTML = zData['Course1:'];
-    data[8].innerHTML = zData['Course2:'];
-    data[9].innerHTML = zData['Course3:'];
+        data[0].innerHTML = zData['Name:'];
+        data[1].innerHTML = zData['ID:'];
+        data[2].innerHTML = zData['Date of Birth:'];
+        data[3].innerHTML = zData['University:'];
+        data[4].innerHTML = zData['Gender:'];
+        data[5].innerHTML = zData['Status:'];
+        data[6].innerHTML = zData['Department:'];
+        data[7].innerHTML = zData['Course1:'];
+        data[8].innerHTML = zData['Course2:'];
+        data[9].innerHTML = zData['Course3:'];
+    }
 }
+// let data = document.getElementsByTagName('td');
+// let zData = JSON.parse(localStorage.getItem('studentInfo'))[20210346];
+
+// data[0].innerHTML = zData['Name:'];
+// data[1].innerHTML = zData['ID:'];
+// data[2].innerHTML = zData['Date of Birth:'];
+// data[3].innerHTML = zData['University:'];
+// data[4].innerHTML = zData['Gender:'];
+// data[5].innerHTML = zData['Status:'];
+// data[6].innerHTML = zData['Department:'];
+// data[7].innerHTML = zData['Course1:'];
+// data[8].innerHTML = zData['Course2:'];
+// data[9].innerHTML = zData['Course3:'];
 
 // for(i in data){
 //     data[i].innerHTML = data1;
