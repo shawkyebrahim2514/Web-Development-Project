@@ -1,11 +1,15 @@
 :root {
-    font-size: 1.2em;
     text-align: center;
+}
+
+body > *:not(nav) {
+    font-size: 1.2em;
 }
 
 h1 {
     text-align: center;
     color: var(--mainColor);
+    font-size: 2em !important;
 }
 
 table {
