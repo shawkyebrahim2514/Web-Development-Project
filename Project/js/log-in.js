@@ -3,13 +3,13 @@ if (window.localStorage.getItem("admins") == null) {
   let admins = {
     20210184: {
       id: "20210184",
-      password: "admin",
+      password: btoa("admin"),
       firstName: "Shawky",
       lastName: "Ebrahim",
     },
     20210755: {
       id: "20210755",
-      password: "admin",
+      password: btoa("admin"),
       firstName: "Alan",
       lastName: "Samir",
     },
@@ -34,7 +34,7 @@ function loginAdmin() {
   const passwordInput = document.getElementById("Password").value;
   let allAdmins = JSON.parse(window.localStorage.getItem("admins"));
   if (allAdmins[idNumberInput]) {
-    if (allAdmins[idNumberInput].password == passwordInput) {
+    if (atob(allAdmins[idNumberInput].password) == passwordInput) {
       window.localStorage.setItem(
         "loggedAdmin",
         JSON.stringify(allAdmins[idNumberInput])

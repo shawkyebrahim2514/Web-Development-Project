@@ -48,7 +48,7 @@ addEventListener("change", function() {    //updating values in local storage wh
     let headerArr = document.getElementsByTagName('tr');
     let allStudent = JSON.parse(this.window.localStorage.getItem('studentInfo'));
     for(let i = 0, j = 1; i < ids.length; i++){
-        if(headerArr[j].children[2].innerHTML == ids[i]){
+        if(j < headerArr.length && headerArr[j].children[2].innerHTML == ids[i]){
             studs[ids[i]]['Status:'] = stds[j-1].value;
             allStudent[ids[i]]['Status:'] = stds[j-1].value;
             j++;

@@ -14,9 +14,26 @@
     <link rel="stylesheet" href="CSS/all.min.css" />
   </head>
   <body>
-    <!-- Nav-Bar JS -->
-    <script src="js/nav-bar.js"></script>
-    
+    <nav>
+    <div class="container">
+      <div class="logo"><img src="svg/logo.svg" alt="logo" height="100%"></div>
+      <div class="bars inactive" onclick="toggleBars()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="links">
+        <ul>
+          <li class="main-list"><a href="main-page.html"> Home </a></li>
+          <li class="main-list"><a href="all-students-page.html">View All</a></li>
+          <li class="main-list"><a href="add-department.html">Add department</a></li>
+          <li class="main-list"><a href="add-course.html">Add Course</a></li>
+          <li class="main-list"><a href="student-page.html">Search</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
     <section class="all-layers">
       <div class="main-sec">
         <h1><b>Welcome to FCAI Higher Studies Website</b></h1>
@@ -31,14 +48,14 @@
       <br /><br />
       <div class="st-sec">
         <h4>Student</h4>
-        <a href="login-page-student.html" class="btn"> Log-In </a>
+        <a class="btn"> Log-In </a>
 
         <img src="svg/main-page-sign.svg" alt="sign in image" />
       </div>
 
       <div class="new-acc">
         <h4>Don't have an account?</h4>
-        <a href="registration.html" class="btn"> Register </a>
+        <a href="registration-admin.html" class="btn"> Register </a>
         <img src="svg/main-page-reg.svg" alt="registration Image" />
       </div>
 

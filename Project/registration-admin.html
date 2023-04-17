@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="CSS/edit.css">
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+          <div class="logo"><img src="svg/logo.svg" alt="logo" height="100%"></div>
+          <div class="bars inactive" onclick="toggleBars()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="links">
+            <ul>
+              <li class="main-list"><a href="main-page.html"> Home </a></li>
+              <li class="main-list"><a href="all-students-page.html">View All</a></li>
+              <li class="main-list"><a href="add-department.html">Add department</a></li>
+              <li class="main-list"><a href="add-course.html">Add Course</a></li>
+              <li class="main-list"><a href="student-page.html">Search</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+  
+<div class="wrapper">
+    <div class="title"> Registration Form </div>
+    <div class="form">
+        <div class="input_field">
+            <label for="full-name">Full Name</label>
+            <input type="text" class="input" id="full-name">
+        </div>
+        <div class="input_field">
+            <label for="id-number">ID</label>
+            <input type="number" class="input" id="id-number">
+        </div>
+        <div class="input_field">
+            <label for="password">Password</label>
+            <input type="password" class="input" id="password">
+        </div>
+        <div class="input_field">
+            <label for="gender">Gender</label>
+            <div class="custom_select">
+                <select id="gender">
+                    <option value=""></option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+        </div>
+        <div class="inputfield">
+            <input type="submit" value="Register" class="btn" id="submit-btn">
+        </div>
+    </div>
+</div>
+<script src="js/registerationform-admin .js"></script>
+</body>
+</html>

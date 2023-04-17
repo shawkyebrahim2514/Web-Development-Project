@@ -9,6 +9,26 @@
     <link rel="stylesheet" href="CSS/Register-Login-style.css">
 </head>
 <body>
+    <nav>
+        <div class="container">
+          <div class="logo"><img src="svg/logo.svg" alt="logo" height="100%"></div>
+          <div class="bars inactive" onclick="toggleBars()">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="links">
+            <ul>
+              <li class="main-list"><a href="main-page.html"> Home </a></li>
+              <li class="main-list"><a href="all-students-page.html">View All</a></li>
+              <li class="main-list"><a href="add-department.html">Add department</a></li>
+              <li class="main-list"><a href="add-course.html">Add Course</a></li>
+              <li class="main-list"><a href="student-page.html">Search</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
   <section class="message">
     <div class="container">
       <div class="successful"></div>
@@ -26,7 +46,7 @@
             </div>
             <div class = "input_field">
                 <label for = "Password">Password</label>
-                <input type = "text" class = "input" id="Password">
+                <input type = "password" class = "input" id="Password">
             </div>
             <div class="inputfield">
                 <input type="submit" value="Log in" class="btn" id="submit-btn" onclick="loginAdmin()">

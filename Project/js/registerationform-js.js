@@ -166,7 +166,7 @@ submitBtn.addEventListener('click', (event) => {
     window.localStorage.setItem('studentInfo', JSON.stringify(allStudent));
     // localStorage.setItem('formData', JSON.stringify(formData));
     // console.log(formData);
-    window.location.replace("./main-page.html")
+    window.location.replace("admin-panel.html")
 
 });
 

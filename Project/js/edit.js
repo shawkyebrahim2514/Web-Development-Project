@@ -100,12 +100,6 @@ deleteBtn.addEventListener('click',()=>{
 })
 
 
-
-
-
-
-
-
 // prevent default form submission behavior, validate form data, and log form data to console
 submitBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -176,7 +170,7 @@ submitBtn.addEventListener('click', (event) => {
         alert('Please select three unique courses.');
         return;
     }
-    
+
     zData['Name:'] = fullNameInput.value;
     zData['ID:'] = idNumberInput.value;
     zData['Date of Birth:'] = dobInput.value;
@@ -191,7 +185,6 @@ submitBtn.addEventListener('click', (event) => {
     allStudent[idNumberInput.value] = zData;
     localStorage.setItem('studentInfo',JSON.stringify(allStudent));
  
-    
     const myPromis = new Promise((resolveFunction,reject)=>{
         resolveFunction(document.getElementById('saved').style.display = 'inline')
     }

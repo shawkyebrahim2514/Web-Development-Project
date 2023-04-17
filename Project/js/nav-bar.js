@@ -13,7 +13,7 @@ function showNavBar(){
     </div>
     <div class="links">
       <ul>
-        <li class="main-list"><a href="admin-page.html"> Home </a></li>
+        <li class="main-list"><a href="admin-panel.html"> Home </a></li>
         <li class="main-list"><a href="all-students-page.html">View All</a></li>
         <li class="main-list"><a href="add-department.html">Add department</a></li>
         <li class="main-list"><a href="add-course.html">Add Course</a></li>
