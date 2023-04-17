@@ -166,7 +166,16 @@ submitBtn.addEventListener('click', (event) => {
     window.localStorage.setItem('studentInfo', JSON.stringify(allStudent));
     // localStorage.setItem('formData', JSON.stringify(formData));
     // console.log(formData);
-    window.location.replace("admin-panel.html")
+    // window.location.replace("admin-panel.html")
+    const myPromis = new Promise((resolveFunction,reject)=>{
+        resolveFunction(document.getElementById('saved').style.display = 'inline')
+    }
+    ).then(()=>{
+        setTimeout(()=>{
+            document.getElementById('saved').style.display = 'none'
+        },3000)
+        }    
+    );
 
 });
 
