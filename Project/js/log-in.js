@@ -1,21 +1,21 @@
 //get Data
-if (window.localStorage.getItem("admins") == null) {
-  let admins = {
-    20210184: {
-      id: "20210184",
-      password: btoa("admin"),
-      firstName: "Shawky",
-      lastName: "Ebrahim",
-    },
-    20210755: {
-      id: "20210755",
-      password: btoa("admin"),
-      firstName: "Alan",
-      lastName: "Samir",
-    },
-  };
-  window.localStorage.setItem("admins", JSON.stringify(admins));
-}
+// if (window.localStorage.getItem("admins") == null) {
+//   let admins = {
+//     20210184: {
+//       id: "20210184",
+//       password: btoa("admin"),
+//       firstName: "Shawky",
+//       lastName: "Ebrahim",
+//     },
+//     20210755: {
+//       id: "20210755",
+//       password: btoa("admin"),
+//       firstName: "Alan",
+//       lastName: "Samir",
+//     },
+//   };
+//   window.localStorage.setItem("admins", JSON.stringify(admins));
+// }
 
 if (window.localStorage.getItem("warning") != null) {
   document.getElementsByClassName("message")[0].style.display = "block";

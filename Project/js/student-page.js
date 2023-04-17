@@ -1,15 +1,3 @@
-// let val = JSON.stringify(   //(REMOVE WHEN INTEGRATING)
-//     {
-//         "20210755" : {"id":"20210755", "fname":"Alan","lname":"Samir", "status":"A"},
-//         "20210184" : {"id":"20210184", "fname":"Shawky","lname":"Ibrahim", "status":"I"},
-//         "20210368" : {"id":"20210368", "fname":"Mahmoud","lname":"Sakr", "status":"I"},
-//         "20210346" : {"id":"20210346", "fname":"Mohamed","lname":"Essam", "status":"A"},
-//         "20211033" : {"id":"20211033", "fname":"Khaled","lname":"Salah", "status":"A"},
-//         "20210485" : {"id":"20210485", "fname":"Youssef","lname":"Mourad", "status":"A"},
-//     }
-// )
-
-// window.localStorage.setItem("Users", val); //adding students to local storage (REMOVE WHEN INTEGRATING)
 if(!window.localStorage.getItem('studentInfo')){
     window.localStorage.setItem('studentInfo','{}');
 }

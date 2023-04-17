@@ -3,10 +3,13 @@ const buttonEdit = document.getElementById('edit');
 const buttonView = document.getElementById('view');
 const buttonSearch = document.getElementById('search');
 
+//Check if no data in local storage
 if(!window.localStorage.getItem('studentInfo')){
     window.localStorage.setItem('studentInfo','{}');
 }
 
+//Edit button function that reload data to another page
+//------------------------------------------------------
 buttonEdit.onclick = function(){
     let data = document.getElementsByTagName('td');
     let header = document.getElementsByTagName('th');
@@ -16,8 +19,6 @@ buttonEdit.onclick = function(){
         let val = data[i].innerHTML;
         stInfo[key] = val;
     }
-    // let users = {};
-    // users[data[1].innerHTML] = JSON.stringify(stInfo);
     let allStudents = JSON.parse(window.localStorage.getItem('studentInfo'));
     allStudents[data[1].innerHTML] = stInfo;
     localStorage.setItem('studentInfo',JSON.stringify(allStudents));
@@ -34,8 +35,7 @@ buttonView.onclick = function(){
 buttonSearch.onclick = function(){
     location.href = "student-page.html";
 };
-
-
+//------------------------------------------------------
 
 
 //Changing Profile Photo
@@ -75,27 +75,7 @@ file.addEventListener('change', function(){
 });
 //------------------------------------------------------
 
-// NEED rechecking 
-
-// localStorage.clear();
-// const page = window.open('edit-page.html');
-// page.addEventListener('DOMContentLoaded', () => {
-//     // Now we can access the #test element on the other page
-//     const testDiv = page.document.getElementById('test')
-//     testDiv.textContent = 'Hello world!'
-// })
-// let data1 = localStorage.getItem('Full Name');
-// let data2 = localStorage.getItem('ID');
-// let data3 = localStorage.getItem('Date of Birth');
-// let data4 = localStorage.getItem('University');
-// let data5 = localStorage.getItem('Gender');
-// let data6 = localStorage.getItem('Status');
-// let data7 = localStorage.getItem('Department');
-// let data8 = localStorage.getItem('Course 1');
-// let data9 = localStorage.getItem('Course 2');
-// let data10 = localStorage.getItem('Course 3');
-
-
+// ADD New Data to local storage
 let currentID = localStorage.getItem('currentID');
 
 if(window.localStorage.getItem('studentInfo')){
@@ -115,20 +95,3 @@ if(window.localStorage.getItem('studentInfo')){
         data[9].innerHTML = zData['Course3:'];
     }
 }
-// let data = document.getElementsByTagName('td');
-// let zData = JSON.parse(localStorage.getItem('studentInfo'))[20210346];
-
-// data[0].innerHTML = zData['Name:'];
-// data[1].innerHTML = zData['ID:'];
-// data[2].innerHTML = zData['Date of Birth:'];
-// data[3].innerHTML = zData['University:'];
-// data[4].innerHTML = zData['Gender:'];
-// data[5].innerHTML = zData['Status:'];
-// data[6].innerHTML = zData['Department:'];
-// data[7].innerHTML = zData['Course1:'];
-// data[8].innerHTML = zData['Course2:'];
-// data[9].innerHTML = zData['Course3:'];
-
-// for(i in data){
-//     data[i].innerHTML = data1;
-// }

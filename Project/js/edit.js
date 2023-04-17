@@ -14,13 +14,6 @@ const course3Select = document.getElementById('course3');
 const submitBtn = document.getElementById('submit-btn');
 
 
-// define arrays of available courses for each department
-// const isCourses = ['IS101', 'IS201', 'IS301', 'IS401'];
-// const csCourses = ['CS101', 'CS201', 'CS301', 'CS401'];
-// const aiCourses = ['AI101', 'AI201', 'AI301', 'AI401'];
-// const itCourses = ['IT101', 'IT201', 'IT301', 'IT401'];
-// const dsCourses = ['DS101', 'DS201', 'DS301', 'DS401'];
-
 // define function to populate courses select element based on selected department
 for(dep in allDepartment){
     const option = document.createElement('option');
