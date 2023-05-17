@@ -1,0 +1,16 @@
+Course
+pk(name) - Department (reference) - hours - day - hall number
+
+Department (one to many with course)
+pk(name)
+
+Student
+pk(id) - birth - name - gender - university - status - major
+
+
+studentCourse (many to many with courses)
+pk(studentID - courseName)
+
+Admin
+pk(id) - password - gender - name
+
