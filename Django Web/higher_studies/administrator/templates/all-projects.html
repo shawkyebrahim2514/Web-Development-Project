@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All Projects</title>
+    <!--  Main Style  -->
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}" />
+    <!--  Admin panel Style  -->
+    <link rel="stylesheet" href="{% static 'CSS/all-projects.css' %}" />
+    <!--  Font Awesome Style  -->
+    <link rel="stylesheet" href="{% static 'CSS/all.min.css' %}" />
+  </head>
+  <body>
+    <nav>
+      <img src="{% static 'svg/logo-2.svg' %}" alt="logo" width="125px" />
+    </nav>
+    <div class="container">
+      <section>
+        <img src="{% static 'svg/logo-2.svg' %}" alt="logo" width="125px" />
+        <h1>Welcome,</h1>
+        <p>Choose the project from the list</p>
+      </section>
+      <div>
+        <figure>
+          <div>
+            <img src="{% static 'svg/human-resources.svg' %}" alt="project 1" />
+          </div>
+          <figcaption>
+            Human Resources Website <i class="fa-solid fa-angles-right"></i>
+          </figcaption>
+        </figure>
+        <figure>
+          <div>
+            <img src="{% static 'svg/student-affairs.svg' %}" alt="project 2" />
+          </div>
+          <figcaption>
+            Student Affairs website <i class="fa-solid fa-angles-right"></i>
+          </figcaption>
+        </figure>
+        <figure>
+          <a href="{%url 'main-page' %}">
+            <div id="our-project">
+              <img src="{% static 'svg/higher-studies.svg' %}" alt="project 3" />
+            </div>
+          </a>
+          <figcaption>
+            Higher studies website <i class="fa-solid fa-angles-right"></i>
+          </figcaption>
+        </figure>
+        <figure>
+          <div>
+            <img src="{% static 'svg/laboratory-traching.svg' %}" alt="project 4" />
+          </div>
+          <figcaption>
+            Laboratory tracking website <i class="fa-solid fa-angles-right"></i>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Student Profile</title>
+    <meta name="description" content="Student Profile Page" />
+    <!--  Main Style  -->
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}" />
+    <!-- Student Profile Style-->
+    <link rel="stylesheet" href="{% static 'CSS/student-profile.css' %}" />
+    <!--  Font Awesome Style  -->
+    <script src="{% static 'js/main.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'CSS/all.min.css' %}">
+</head>
+<body>
+    <!-- Nav-Bar JS -->
+    <script src="{% static 'js/nav-bar.js' %}"></script>
+
+    <h1> Student Profile </h1>
+    <div class="all-layers">
+      <section class="upper-layer">
+        <div>
+          <table class="content-table">
+            <tr>
+              <th>Name:</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>ID:</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>Date of Birth:</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>University:</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>Gender:</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>Status:</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>Department:</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>Course1:</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>Course2:</th>
+              <td></td>
+            </tr>
+            <tr>
+              <th>Course3:</th>
+              <td></td>
+            </tr>
+          </table>
+        </div>
+      </section>
+
+      <br />
+
+      <section>
+        <div class="lower-layer">
+          <div class="profile-pic">
+            <img src="{% static 'svg/profile.jpg' %}" alt="profile Image" id="photo" />
+            <input type="file" id="file" />
+            <label for="file" id="upload-btn">Choose Photo</label>
+          </div>
+
+          <button id="edit" class="btn to-right-btn" formaction="edit profile">
+            <span> Edit </span>
+            <i class="fa-solid fa-angles-right"></i>
+          </button>
+
+          <button
+            id="view"
+            class="btn to-right-btn"
+            formaction="all-students-page.html"
+          >
+            <span> View </span>
+            <i class="fa-solid fa-angles-right"></i>
+          </button>
+
+          <button
+            id="search"
+            class="btn to-down-btn"
+            formaction="student-page.html"
+          >
+            <span> Search </span>
+            <i class="fa-solid fa-angles-down fa-xs"></i>
+          </button>
+        </div>
+      </section>
+    </div>
+
+    <!-- Student Profile js-->
+    <script src="{% static 'js/student-profile.js' %}"></script>
+  </body>
+</html>

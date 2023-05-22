@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="{% static 'CSS/edit.css' %}">
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+    <script src="{% static 'js/main.js' %}"></script>
+</head>
+<body>
+    <!-- Nav-Bar JS -->
+    <script src="{% static 'js/nav-bar.js' %}"></script>
+
+<div class="wrapper">
+    <div class="title"> Registration Form </div>
+    <span id="saved" style="transform: translate(146px, -24px)"> Successfully Added <img src="{% static 'svg/check.png' %}" alt="check mark"></span>
+    <div class="form">
+        <div class="input_field">
+            <label for="full-name">Full Name</label>
+            <input type="text" class="input" id="full-name">
+        </div>
+        <div class="input_field">
+            <label for="id-number">ID</label>
+            <input type="number" class="input" id="id-number">
+        </div>
+        <div class="input_field">
+            <label for="dob">Date of Birth</label>
+            <input type="date" class="input" id="dob">
+        </div>
+        <div class="input_field">
+            <label for="university">University</label>
+            <input type="text" class="input" id="university">
+        </div>
+        <div class="input_field">
+            <label for="gender">Gender</label>
+            <div class="custom_select">
+                <select id="gender">
+                    <option value=""></option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+        </div>
+        <div class="input_field">
+            <label for="status">Status</label>
+            <div class="custom_select">
+                <select id="status">
+                    <option value=""></option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
+                </select>
+            </div>
+        </div>
+        <div class="input_field">
+            <label for="department">Department</label>
+            <div class="custom_select">
+                <select id="department">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div class="input_field">
+            <label for="course1">Course 1</label>
+            <div class="custom_select">
+                <select id="course1">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div class="input_field">
+            <label for="course2">Course 2</label>
+            <div class="custom_select">
+                <select id="course2">
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
+        <div class="input_field">
+            <label for="course3">Course 3</label>
+            <div class="custom_select">
+                <select id="course3">
+                    <option value=""></option>
+
+                </select>
+            </div>
+        </div>
+        <div class="inputfield">
+            <input type="submit" value="Register" class="btn" id="submit-btn">
+        </div>
+    </div>
+</div>
+<script src="{% static 'js/registerationform-js.js' %}"></script>
+</body>
+</html>
