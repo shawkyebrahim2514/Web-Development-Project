@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block metaContent %}
+<meta
+name="description"
+content="This is the Registration page admin to register into the system"
+/>
+{% endblock %}
+
+{% block title %}
+<title>Registration Form</title>
+{% endblock %}
+
+{% block static_cssFile %}
+<link rel="stylesheet" href="{% static 'CSS/edit.css' %}" />
+{% endblock %}
+
+
+{% block static_jsFile %}
+{% endblock %}
+
+{% block navBar %}
+<nav>
+  <div class="container">
+    <div class="logo">
+      <a href="{%url 'main-page' %}">
+        <img src="{% static 'svg/logo.svg' %}" alt="logo" height="100%" />
+      </a>
+    </div>
+    <div class="bars inactive" onclick="toggleBars()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="links">
+      <ul>
+        <li class="main-list"><a href="{%url 'main-page' %}">Home</a></li>
+        <li class="main-list"><a href="{%url 'login-page' %}">Login</a></li>
+        <li class="main-list">
+          <a href="{%url 'registration-admin' %}">Register</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+{% endblock %}
+  
+{% block Bodycontent %}
+<div class="wrapper">
+  <div class="title">Registration Form</div>
+  <div class="form">
+    <div class="input_field">
+      <label for="full-name">Full Name</label>
+      <input type="text" class="input" id="full-name" />
+    </div>
+    <div class="input_field">
+      <label for="id-number">ID</label>
+      <input type="number" class="input" id="id-number" />
+    </div>
+    <div class="input_field">
+      <label for="password">Password</label>
+      <input type="password" class="input" id="password" />
+    </div>
+    <div class="input_field">
+      <label for="gender">Gender</label>
+      <div class="custom_select">
+        <select id="gender">
+          <option value=""></option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </div>
+    </div>
+    <div class="inputfield">
+      <input type="submit" value="Register" class="btn" id="submit-btn" />
+    </div>
+  </div>
+</div>
+<script src="{% static 'js/registerationform-admin.js' %}"></script>
+{% endblock %}
+  
