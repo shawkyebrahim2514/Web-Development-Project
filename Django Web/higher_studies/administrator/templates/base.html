@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta
+        name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+        />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        {% block metaContent %}
+        {% endblock %}
+
+        {% block title %}
+        {% endblock %}
+
+        <!--  Main Style  -->
+        <link rel="stylesheet" href="{% static 'CSS/style.css' %}" />
+        {% block static_cssFile %}
+        {% endblock %}
+        <!--  Font Awesome Style  -->
+        <link rel="stylesheet" href="{% static 'CSS/all.min.css' %}" />
+        
+        {% block static_jsFile %}
+        <script src="{% static 'js/main.js' %}"></script>
+        {% endblock %}
+        
+    </head>
+    <body>
+
+        {% block navBar %}
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <a href="{%url 'admin-panel' %}"
+                    ><img src="{% static 'svg/logo.svg' %}" alt="logo" height="100%"
+                    /></a>
+                </div>
+                <div class="bars inactive" onclick="toggleBars()">
+                <span></span>
+                <span></span>
+                <span></span>
+                </div>
+                <div class="links">
+                <ul>
+                    <li class="main-list"><a href="{% url 'admin-panel' %}">Home</a></li>
+                    <li class="main-list"><a href="{% url 'add-department' %}">Add department</a></li>
+                    <li class="main-list"><a href="{% url 'add-course' %}">Add Course</a></li>
+                    <li class="main-list"><a href="{% url 'registration' %}">Add Student</a></li>
+                    <li class="main-list"><a href="{% url 'all-students-page' %}">View All</a></li>
+                    <li class="main-list"><a href="{% url 'search-page' %}">Search</a></li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+        {% endblock %}
+    
+        {% block Bodycontent %}
+        {% endblock %}
+    </body>
+</html>
