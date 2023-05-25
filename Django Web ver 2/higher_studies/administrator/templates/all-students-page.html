@@ -42,6 +42,18 @@
       </tr>
     </thead>
     <tbody>
+        {% for item in data %}
+            <td>{{ item.name }}</td>
+            <td>{{ item.id }}</td>
+            <td>no date</td>
+            <td>{{ item.university }}</td>
+            <td>{{ item.gender }}</td>
+            <td>{{ item.status }}</td>
+            <td>{{ item.department_name }}</td>
+            <td>no course</td>
+            <td>no course</td>
+            <td>no course</td>
+        {% endfor %}
     </tbody>
   </table>
   <div id="srchbtn">

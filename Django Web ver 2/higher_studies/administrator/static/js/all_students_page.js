@@ -16,7 +16,7 @@ for (const valKey in data) {
 
 let searchBtn = document.getElementById('search-btn')
 searchBtn.addEventListener('click', ()=>{
-    window.location.href = "search-page.html";
+    window.location.href = "../search";
 })
 
 
