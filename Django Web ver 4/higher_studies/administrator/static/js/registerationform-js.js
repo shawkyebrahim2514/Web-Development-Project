@@ -1,4 +1,4 @@
-let allDepartment = JSON.parse(window.localStorage.getItem('allDepartments'));
+// let allDepartment = JSON.parse(window.localStorage.getItem('allDepartments'));
 
 // get form elements
 const fullNameInput = document.getElementById('full-name');
@@ -22,37 +22,59 @@ const submitBtn = document.getElementById('submit-btn');
 // const dsCourses = ['DS101', 'DS201', 'DS301', 'DS401'];
 
 // define function to populate courses select element based on selected department
-for(dep in allDepartment){
-    const option = document.createElement('option');
-    option.text = dep;
-    option.value = dep;
-    departmentSelect.add(option);
-}
+// for(dep in allDepartment){
+//     const option = document.createElement('option');
+//     option.text = dep;
+//     option.value = dep;
+//     departmentSelect.add(option);
+// }
 
 
-
+// function populateCourses(departmentSelect, courseSelect1, courseSelect2, courseSelect3) {
+//     // get selected department value
+//     const department = departmentSelect.value;
+//
+//     // determine which array of courses to use based on selected department
+//     let courses = allDepartment[department];
+//
+//     // display courses in course select elements
+//     courseSelect1.innerHTML = '';
+//     courseSelect2.innerHTML = '';
+//     courseSelect3.innerHTML = '';
+//     for (let i = 0; i < courses.length; i++) {
+//         const option = document.createElement('option');
+//         option.text = courses[i];
+//         option.value = courses[i];
+//         courseSelect1.add(option);
+//         courseSelect2.add(option.cloneNode(true));
+//         courseSelect3.add(option.cloneNode(true));
+//     }
+// }
 function populateCourses(departmentSelect, courseSelect1, courseSelect2, courseSelect3) {
     // get selected department value
     const department = departmentSelect.value;
 
-    // determine which array of courses to use based on selected department
-    let courses = allDepartment[department];
-
-    // display courses in course select elements
-    courseSelect1.innerHTML = '';
-    courseSelect2.innerHTML = '';
-    courseSelect3.innerHTML = '';
-    for (let i = 0; i < courses.length; i++) {
-        const option = document.createElement('option');
-        option.text = courses[i];
-        option.value = courses[i];
-        courseSelect1.add(option);
-        courseSelect2.add(option.cloneNode(true));
-        courseSelect3.add(option.cloneNode(true));
-    }
+    // perform a Django query to get the courses for the selected department
+    fetch(`/api/courses?department=${department}`)
+        .then(response => response.json())
+        .then(data => {
+            // display courses in course select elements
+            courseSelect1.innerHTML = '';
+            courseSelect2.innerHTML = '';
+            courseSelect3.innerHTML = '';
+            for (let i = 0; i < data.length; i++) {
+                const option = document.createElement('option');
+                option.text = data[i].name;
+                option.value = data[i].name;
+                courseSelect1.add(option);
+                courseSelect2.add(option.cloneNode(true));
+                courseSelect3.add(option.cloneNode(true));
+            }
+        })
+        .catch(error => {
+            console.error('Error retrieving courses:', error);
+        });
 }
-
-
 
 
 // populate courses select elements when department is changed
@@ -70,7 +92,7 @@ submitBtn.addEventListener('click', (event) => {
         return;
     }
 
-    if(new Date(dobInput.value).getFullYear() >= new Date(2004, 1 ,1).getFullYear()){
+    if (new Date(dobInput.value).getFullYear() >= new Date(2004, 1, 1).getFullYear()) {
         alert('Please enter valid birth date.');
         return;
     }
@@ -136,50 +158,103 @@ submitBtn.addEventListener('click', (event) => {
         return;
     }
 
-    const formData = {
-        'Full Name': fullNameInput.value,
-        'ID': idNumberInput.value,
-        'Date of Birth': dobInput.value,
-        'University': universityInput.value,
-        'Gender': genderSelect.value,
-        'Status': statusSelect.value,
-        'Department': departmentSelect.value,
-        'Course 1': course1Select.value,
-        'Course 2': course2Select.value,
-        'Course 3': course3Select.value
-    };
+    // const formData = {
+    //     'Full Name': fullNameInput.value,
+    //     'ID': idNumberInput.value,
+    //     'Date of Birth': dobInput.value,
+    //     'University': universityInput.value,
+    //     'Gender': genderSelect.value,
+    //     'Status': statusSelect.value,
+    //     'Department': departmentSelect.value,
+    //     'Course 1': course1Select.value,
+    //     'Course 2': course2Select.value,
+    //     'Course 3': course3Select.value
+    // };
     // save form data in local storage
 
-    if(!window.localStorage.getItem('studentInfo')){
-        localStorage.setItem('studentInfo', '{}');
-    }
+    // if(!window.localStorage.getItem('studentInfo')){
+    //     localStorage.setItem('studentInfo', '{}');
+    // }
 
-    let allStudent = JSON.parse(window.localStorage.getItem('studentInfo'));
-    let zData = {};
-    zData['Name:'] = fullNameInput.value;
-    zData['ID:'] = idNumberInput.value;
-    zData['Date of Birth:'] = dobInput.value;
-    zData['University:'] = universityInput.value;
-    zData['Gender:'] = genderSelect.value;
-    zData['Status:']= statusSelect.value;
-    zData['Department:'] = departmentSelect.value;
-    zData['Course1:'] = course1Select.value;
-    zData['Course2:'] = course2Select.value;
-    zData['Course3:'] = course3Select.value;
+    // let allStudent = JSON.parse(window.localStorage.getItem('studentInfo'));
+    // let zData = {};
+    // zData['Name:'] = fullNameInput.value;
+    // zData['ID:'] = idNumberInput.value;
+    // zData['Date of Birth:'] = dobInput.value;
+    // zData['University:'] = universityInput.value;
+    // zData['Gender:'] = genderSelect.value;
+    // zData['Status:'] = statusSelect.value;
+    // zData['Department:'] = departmentSelect.value;
+    // zData['Course1:'] = course1Select.value;
+    // zData['Course2:'] = course2Select.value;
+    // zData['Course3:'] = course3Select.value;
 
-    allStudent[idNumberInput.value] = zData;
-    window.localStorage.setItem('studentInfo', JSON.stringify(allStudent));
-    // localStorage.setItem('formData', JSON.stringify(formData));
-    // console.log(formData);
-    // window.location.replace("admin-panel.html")
-    const myPromis = new Promise((resolveFunction,reject)=>{
-        resolveFunction(document.getElementById('saved').style.display = 'inline')
-    }
-    ).then(()=>{
-        setTimeout(()=>{
-            document.getElementById('saved').style.display = 'none'
-        },3000)
-        }    
-    );
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "");
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.setRequestHeader("X-CSRFToken", getCookie("csrftoken"));
+
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            let response = JSON.parse(xhr.responseText);
+            if (response.success) {
+                alert("Data submitted successfully");
+
+            } else {
+                alert("Failed to submit data");
+            }
+        }
+    };
+
+    var data =
+        "fullNameInput=" +
+        encodeURIComponent(fullNameInput.value) +
+        "&idNumberInput=" +
+        encodeURIComponent(idNumberInput.value) +
+        "&dobInput=" +
+        encodeURIComponent(dobInput.value) +
+        "&universityInput=" +
+        encodeURIComponent(universityInput.value) +
+        "&genderSelect=" +
+        encodeURIComponent(genderSelect.value) +
+        "&statusSelect=" +
+        encodeURIComponent(statusSelect.value) +
+        "&departmentSelect=" +
+        encodeURIComponent(departmentSelect.value) +
+        "&course1Select=" +
+        encodeURIComponent(course1Select.value) +
+        "&course2Select=" +
+        encodeURIComponent(course2Select.value) +
+        "&course3Select=" +
+        encodeURIComponent(course3Select.value);
+
+
+
+    xhr.send(data);
 });
+function mypromise(){
+    const myPromis = new Promise((resolveFunction, reject) => {
+            resolveFunction(document.getElementById('saved').style.display = 'inline')
+        }
+    ).then(() => {
+            setTimeout(() => {
+                document.getElementById('saved').style.display = 'none'
+            }, 3000)
+        }
+    );
+}
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== "") {
+        var cookies = document.cookie.split(";");
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === name + "=") {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
 

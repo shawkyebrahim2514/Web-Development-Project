@@ -82,7 +82,27 @@ def main_page(request):
 
 
 def registration(request):
-    return render(request, 'registration.html')
+    if request.method == 'POST':
+        fullname = request.POST.get('fullNameInput')
+        id = request.POST.get('idNumberInput')
+        dobInput = request.POST.get('dobInput')
+        genderSelect = request.POST.get('genderSelect')
+        universityInput = request.POST.get('universityInput')
+        statusSelect = request.POST.get('statusSelect')
+        departmentSelect = request.POST.get('departmentSelect')
+        course1Select = request.POST.get('course1Select')
+        course2Select = request.POST.get('course2Select')
+        course3Select = request.POST.get('course3Select')
+
+        students = Student.objects.all()
+        if students.filter(id = id).exists():
+            return JsonResponse({'success': False})
+        else:
+            stundent_instance =Student(id, fullname, genderSelect, universityInput, statusSelect, dobInput, departmentSelect, course1Select, course2Select, course3Select)
+            return JsonResponse({'success': True, })
+    else:
+        return render(request, 'registration.html')
+
 
 
 def registration_admin(request):

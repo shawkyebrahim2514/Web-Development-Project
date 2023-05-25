@@ -4,8 +4,8 @@
 
 {% block metaContent %}
 <meta
-name="description"
-content="This is the register page to register student into the system"
+        name="description"
+        content="This is the register page to register student into the system"
 />
 {% endblock %}
 
@@ -17,11 +17,12 @@ content="This is the register page to register student into the system"
 <link rel="stylesheet" href="{% static 'CSS/edit.css' %}">
 {% endblock %}
 
-    
+
 {% block Bodycontent %}
 <div class="wrapper">
-    <div class="title"> Registration Form </div>
-    <span id="saved" style="transform: translate(146px, -24px)"> Successfully Added <img src="{% static 'svg/check.png' %}" alt="check mark"></span>
+    <div class="title"> Registration Form</div>
+    <span id="saved" style="transform: translate(146px, -24px)"> Successfully Added <img
+            src="{% static 'svg/check.png' %}" alt="check mark"></span>
     <div class="form">
         <div class="input_field">
             <label for="full-name">Full Name</label>
@@ -64,6 +65,9 @@ content="This is the register page to register student into the system"
             <div class="custom_select">
                 <select id="department">
                     <option value=""></option>
+                    {% for dep in allDepartments %}
+                    <option value="{{dep.name}}">{{dep.name}}</option>
+                    {% endfor %}
                 </select>
             </div>
         </div>
@@ -72,6 +76,9 @@ content="This is the register page to register student into the system"
             <div class="custom_select">
                 <select id="course1">
                     <option value=""></option>
+                    {% for course in allCourses %}
+                    <option value="{{course.name}}">{{course.name}}</option>
+                    {% endfor %}
                 </select>
             </div>
         </div>
@@ -80,6 +87,9 @@ content="This is the register page to register student into the system"
             <div class="custom_select">
                 <select id="course2">
                     <option value=""></option>
+                    {% for course in allCourses %}
+                    <option value="{{course.name}}">{{course.name}}</option>
+                    {% endfor %}
                 </select>
             </div>
         </div>
@@ -88,7 +98,9 @@ content="This is the register page to register student into the system"
             <div class="custom_select">
                 <select id="course3">
                     <option value=""></option>
-
+                    {% for course in allCourses %}
+                    <option value="{{course.name}}">{{course.name}}</option>
+                    {% endfor %}
                 </select>
             </div>
         </div>
