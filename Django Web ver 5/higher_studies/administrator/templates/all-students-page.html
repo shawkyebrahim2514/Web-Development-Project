@@ -43,16 +43,18 @@
     </thead>
     <tbody>
         {% for item in data %}
-            <td>{{ item.name }}</td>
-            <td>{{ item.id }}</td>
-            <td>no date</td>
-            <td>{{ item.university }}</td>
-            <td>{{ item.gender }}</td>
-            <td>{{ item.status }}</td>
-            <td>{{ item.department_name }}</td>
-            <td>no course</td>
-            <td>no course</td>
-            <td>no course</td>
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.id }}</td>
+                <td>{{ item.date_of_birth }}</td>
+                <td>{{ item.university }}</td>
+                <td>{{ item.gender }}</td>
+                <td>{{ item.status }}</td>
+                <td>{{ item.department_name }}</td>
+                <td>{{ item.course1 }}</td>
+                <td>{{ item.course2 }}</td>
+                <td>{{ item.course3 }}</td>
+            </tr>
         {% endfor %}
     </tbody>
   </table>

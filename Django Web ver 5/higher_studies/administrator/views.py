@@ -52,7 +52,8 @@ def all_projects(request):
 
 
 def all_students(request):
-    return render(request, 'all-students-page.html')
+    data = Student.objects.all()
+    return render(request, 'all-students-page.html', {'data': data})
 
 
 def edit_page(request, id):
