@@ -1,0 +1,113 @@
+.wrapper {
+    max-width: 500px;
+    width: 100%;
+    background: var(--lightColor-4);
+    margin: 20px auto;
+    padding: 30px;
+    border-radius: var(--bs-border-radius);
+    box-shadow: var(--boxShadow);
+}
+
+.wrapper .title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: var(--mainColor);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.wrapper .form {
+    width: 100%;
+}
+
+.wrapper .form .input_field {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.wrapper .form .input_field label {
+    width: 200px;
+    color: var(--mainColor);
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.wrapper .form .input_field input, .wrapper .form .input_field textarea {
+    width: 100%;
+    outline: none;
+    border: 1px solid var(--lightColor-2);
+    font-size: 15px;
+    padding: 8px 10px;
+    border-radius: 3px;
+    /* transition: all 0.3s ease; */
+}
+
+.wrapper .form .input_field .custom_select {
+    position: relative;
+    width: 100%;
+    height: 37px;
+}
+
+.wrapper .form .input_field .custom_select select {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 1px solid var(--lightColor-2);
+    width: 100%;
+    height: 100%;
+    padding: 8px 10px;
+    border-radius: 3px;
+    outline: none;
+}
+
+
+.wrapper .form .inputfield .btn{
+    width: 100%;
+    padding: 8px 10px;
+    margin: 2px;
+    font-size: 15px;
+    border: 0px;
+    background:  var(--mainColor);
+    color: var(--lightColor-3);
+    cursor: pointer;
+    border-radius: 3px;
+    outline: none;
+}
+
+.wrapper .form .inputfield .btn:hover{
+    background: var(--lightColor-2);
+}
+
+#saved{
+    position: absolute;
+    font-size: 15px;
+    font-weight: 100;
+    padding: 0px;
+    margin: 0px;
+    transform: translate(130px,-24px);
+    display: none;
+}
+#saved img{
+    height: 15px;
+    transform: translate(0px, 3px);
+}
+
+.wrapper .form .input_field input:not([type = 'submit'], [type = 'reset']), .wrapper .form .input_field .custom_select select {
+    appearance: none;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    /*border: 1px solid var(--mainColor);*/
+    box-shadow: var(--boxShadow);
+    background: white;
+    width: 100%;
+    padding: 10px 20px;
+    border-radius: var(--bs-border-radius);
+  }
+  
+.wrapper .form .input_field input:not([type = 'submit'], [type = 'reset']):focus-visible {
+    border: 1px solid var(--lightColor-2);
+
+    box-shadow: none;
+  }

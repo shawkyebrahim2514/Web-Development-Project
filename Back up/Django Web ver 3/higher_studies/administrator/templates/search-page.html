@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block metaContent %}
+<meta
+name="description"
+content="This is the search page to search for any students into the system"
+/>
+{% endblock %}
+
+
+{% block title %}
+<title>Search Page</title>
+{% endblock %}
+
+
+{% block static_cssFile %}
+<link rel="stylesheet" href="{% static 'CSS/search-page.css' %}"/>
+{% endblock %}
+
+
+
+{% block Bodycontent %}
+<h1>Search Page</h1>
+
+<div class="searchbar">
+    <input
+            id="bar"
+            type="input"
+            maxlength="30"
+            data-search
+            placeholder="Search.."
+    />
+</div>
+
+<table id="studT">
+    <div class="tablehead">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Student ID</th>
+            <th>Department</th>
+            <th>Activity Status</th>
+        </tr>
+    </div>
+</table>
+
+<script src="{% static 'js/search-page.js' %}"></script>
+{% endblock %}
+

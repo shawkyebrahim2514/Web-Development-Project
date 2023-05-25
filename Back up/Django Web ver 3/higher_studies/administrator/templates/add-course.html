@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block metaContent %}
+<meta name="description" content="This page for adding a new course for this website">
+{% endblock %}
+
+{% block title %}
+<title>Adding new course</title>
+{% endblock %}
+
+{% block static_cssFile %}
+  <!--  Admin panel Style  -->
+  <link rel="stylesheet" href="{% static 'CSS/add-course.css' %}">
+{% endblock %}
+
+
+{% block Bodycontent %}
+    <section class="message">
+      <div class="container">
+        <div class="successful"></div>
+        <div class="warning"></div>
+      </div>
+    </section>
+    <section>
+      <h1>Adding new course</h1>
+      <div class="container">
+        <form method="POST" onsubmit="return false">
+          <section>
+            <label for="department">Select the department</label>
+            <select id="department">
+              <option value="">Choose Department</option>
+              {% for department in allDepartments %}
+                  <option value="{{ department.name }}"> {{ department.name }} </option>
+              {% endfor %}
+            </select>
+          </section>
+    
+          <section>
+            <label for="courseName">Enter course name</label>
+            <input id="courseName" type="text" name="courseName" placeholder="Enter valid name" required/>
+          </section>
+    
+          <section>
+            <label for="courseHours">Enter course hours</label>
+            <input id="courseHours" type="number" name="courseHours" min="1" max="4" value="1" required/>
+          </section>
+    
+          <section>
+            <label for="courseDay">Enter course day number</label>
+            <input id="courseDay" type="number" name="courseDay" min="1" max="7" value="1" required/>
+          </section>
+    
+          <section>
+            <label for="courseHall">Enter course hall number</label>
+            <input id="courseHall" type="number" name="courseHall" min="1" value="1" required/>
+          </section>
+    
+          <section>
+            <input type="submit" class="btn" onclick="addNewCourse()">
+            <input type="reset" class="btn">
+          </section>
+        </form>
+      </div>
+      <script src="{% static 'js/admin-control.js' %}"></script>
+      <script src="{% static 'js/add-course.js' %}"></script>
+    </section>
+{% endblock %}
+

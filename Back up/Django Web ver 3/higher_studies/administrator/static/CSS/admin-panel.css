@@ -1,0 +1,42 @@
+section {
+  text-align: center;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 60px;
+}
+
+h1 > span {
+  color: var(--lightColor-2);
+}
+
+.links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 15px;
+}
+
+.links section {
+  background-color: var(--lightColor);
+  padding: 20px 10px;
+  border-radius: var(--bs-border-radius);
+  box-shadow: var(--boxShadow)
+}
+
+.links section img {
+  height: 300px;
+  margin-bottom: 10px;
+}
+
+.links section a {
+  text-decoration: none;
+  width: 90%;
+}
+
+button.logout {
+  margin: 20px 0;
+  background-color: var(--lightColor-2);
+  width: 25%;
+  font-weight: 600;
+}
