@@ -55,7 +55,7 @@ function populateCourses(departmentSelect, courseSelect1, courseSelect2, courseS
     const department = departmentSelect.value;
 
     // perform a Django query to get the courses for the selected department
-    fetch(`/api/courses?department=${department}`)
+    fetch(`/get-courses/${department}`)
         .then(response => response.json())
         .then(data => {
             // display courses in course select elements
@@ -63,16 +63,14 @@ function populateCourses(departmentSelect, courseSelect1, courseSelect2, courseS
             courseSelect2.innerHTML = '';
             courseSelect3.innerHTML = '';
             for (let i = 0; i < data.length; i++) {
+                console.log(data[i])
                 const option = document.createElement('option');
-                option.text = data[i].name;
-                option.value = data[i].name;
+                option.text = data[i];
+                option.value = data[i];
                 courseSelect1.add(option);
                 courseSelect2.add(option.cloneNode(true));
                 courseSelect3.add(option.cloneNode(true));
             }
-        })
-        .catch(error => {
-            console.error('Error retrieving courses:', error);
         });
 }
 
@@ -229,10 +227,10 @@ submitBtn.addEventListener('click', (event) => {
         encodeURIComponent(course3Select.value);
 
 
-
     xhr.send(data);
 });
-function mypromise(){
+
+function mypromise() {
     const myPromis = new Promise((resolveFunction, reject) => {
             resolveFunction(document.getElementById('saved').style.display = 'inline')
         }
@@ -243,6 +241,7 @@ function mypromise(){
         }
     );
 }
+
 function getCookie(name) {
     var cookieValue = null;
     if (document.cookie && document.cookie !== "") {

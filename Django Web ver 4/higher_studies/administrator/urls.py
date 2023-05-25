@@ -7,7 +7,7 @@ urlpatterns = [
     path('login/', views.login_page, name='login-page'),
     path('registration/', views.registration, name='registration'),
     path('registration-admin/', views.registration_admin, name='registration-admin'),
-    
+    path('get-courses/<str:department>/', views.get_courses, name='get-courses'),
     
     # path('login/login-page-admin.html', views.admin_panel, name='login-page'),
 

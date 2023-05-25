@@ -1,8 +1,10 @@
 from django.shortcuts import render
 from django.http import JsonResponse
-from .models import Admin, Course, Department,Student, Studentcourse
+from .models import Admin, Course, Department, Student, Studentcourse
 from django.http import HttpResponse
 from django.template import loader
+
+
 # Create your views here.
 
 def add_course(request):
@@ -13,31 +15,31 @@ def add_course(request):
         courseDay = request.POST.get('courseDay')
         courseHall = request.POST.get('courseHall')
         allCourses = Course.objects.all()
-        if allCourses.filter(name = newCourseName).exists():
-            msg = "The Course "+ newCourseName +" is already exist, Please try again"
-            return JsonResponse({'success' : False, 'warning_message' :  msg})
+        if allCourses.filter(name=newCourseName).exists():
+            msg = "The Course " + newCourseName + " is already exist, Please try again"
+            return JsonResponse({'success': False, 'warning_message': msg})
         else:
             course_instance = Course(newCourseName, departmentName, courseHours, courseDay, courseHall)
             course_instance.save()
             msg = 'Successfully Added Course ' + course_instance.name
-            return JsonResponse({'success' : True, 'successful_message' :  msg})
+            return JsonResponse({'success': True, 'successful_message': msg})
     else:
-        return render(request, 'add-course.html', {'allDepartments' : Department.objects.all()})
+        return render(request, 'add-course.html', {'allDepartments': Department.objects.all()})
 
 
 def add_department(request):
     if request.method == 'POST':
         newDepartment = request.POST.get('newDepartment')
         departments = Department.objects.all()
-        if departments.filter(name = newDepartment).exists():
-            msg = "The Department "+ newDepartment +" is already exist, Please try again"
-            return JsonResponse({'success' : False, 'warning_message' :  msg})
+        if departments.filter(name=newDepartment).exists():
+            msg = "The Department " + newDepartment + " is already exist, Please try again"
+            return JsonResponse({'success': False, 'warning_message': msg})
         else:
             department_instance = Department(newDepartment)
             department_instance.save()
             msg = 'Successfully Added Department ' + department_instance.name
-            return JsonResponse({'success' : True, 'successful_message' :  msg})
-    else:   
+            return JsonResponse({'success': True, 'successful_message': msg})
+    else:
         return render(request, 'add-department.html')
 
 
@@ -66,14 +68,14 @@ def login_page(request):
         print(password)
         print(admins.get(id=id).password)
         ## REMEMBER TRY CATCH in EXITS
-        if admins.filter(id=id, password = password).exists():
+        if admins.filter(id=id, password=password).exists():
             firstName = admins.get(id=id).name.split(" ")[0]
             lastName = admins.get(id=id).name.split(" ")[1]
-            request.session['loggedAdmin'] = {'firstName' : firstName, 'lastName':lastName}
-            return JsonResponse({'success' : True, 'firstName': firstName, 'lastName':lastName})
+            request.session['loggedAdmin'] = {'firstName': firstName, 'lastName': lastName}
+            return JsonResponse({'success': True, 'firstName': firstName, 'lastName': lastName})
         else:
-            return JsonResponse({'success' : False})
-    else: 
+            return JsonResponse({'success': False})
+    else:
         return render(request, 'login-page-admin.html')
 
 
@@ -95,15 +97,22 @@ def registration(request):
         course3Select = request.POST.get('course3Select')
 
         students = Student.objects.all()
-        if students.filter(id = id).exists():
+        if students.filter(id=id).exists():
             return JsonResponse({'success': False})
         else:
-            stundent_instance =Student(id, fullname, genderSelect, universityInput, statusSelect, dobInput, departmentSelect, course1Select, course2Select, course3Select)
+            student_instance = Student(id, fullname, genderSelect, universityInput, statusSelect, dobInput,
+                                       departmentSelect, course1Select, course2Select, course3Select)
+            student_instance.save()
             return JsonResponse({'success': True, })
     else:
-        return render(request, 'registration.html')
+        allDepartments = Department.objects.all()
+        return render(request, 'registration.html', {'allDepartments': allDepartments})
 
 
+def get_courses(request, department):
+    courses = Course.objects.filter(department=department)
+    courses_list = [course.name for course in courses]
+    return JsonResponse(courses_list, safe=False)
 
 def registration_admin(request):
     if request.method == 'POST':
@@ -113,15 +122,14 @@ def registration_admin(request):
         password = request.POST.get('password')
         id = request.POST.get('id')
 
-        if Admin.objects.filter(id = id).exists():
+        if Admin.objects.filter(id=id).exists():
             return JsonResponse({'success': False})
         else:
-            admin_instance = Admin(id = id, name = firstName + " " + lastName, gender = gender, password = password)
+            admin_instance = Admin(id=id, name=firstName + " " + lastName, gender=gender, password=password)
             admin_instance.save()
             return JsonResponse({'success': True})
     else:
         return render(request, 'registration-admin.html')
-
 
 
 def search_page(request):
