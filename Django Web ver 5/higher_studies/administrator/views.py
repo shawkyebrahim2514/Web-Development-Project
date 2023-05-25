@@ -58,7 +58,6 @@ def all_students(request):
 
 def edit_page(request, id):
     if request.method == 'POST':
-        
         fullname = request.POST.get('fullNameInput')
         idInput = request.POST.get('idNumberInput')
         dobInput = request.POST.get('dobInput')

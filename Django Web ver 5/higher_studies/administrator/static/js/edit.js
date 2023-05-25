@@ -82,7 +82,7 @@ deleteBtn.addEventListener('click',()=>{
     if(confirmationMsg != null){
         if(confirmationMsg == idNumberInput.value){
             let xhr = new XMLHttpRequest();
-            xhr.open("POST", "delete/");
+            xhr.open("POST", "");
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
             xhr.setRequestHeader("X-CSRFToken", getCookie("csrftoken"));
             xhr.onload = function () {
