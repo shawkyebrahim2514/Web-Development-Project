@@ -25,24 +25,31 @@ content="This is the search page to search for any students into the system"
 <h1>Search Page</h1>
 
 <div class="searchbar">
-    <input
-            id="bar"
-            type="input"
-            maxlength="30"
-            data-search
-            placeholder="Search.."
-    />
+    <form method=POST action="{% url 'search-page' %}">
+        {% csrf_token %}
+        <input id="bar" type="search" placeholder="Student Name or ID" name="searched">
+        <button class="btn" type="submit">Search</button>
+    </form>
 </div>
 
 <table id="studT">
     <div class="tablehead">
         <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Student Name</th>
             <th>Student ID</th>
             <th>Department</th>
             <th>Activity Status</th>
         </tr>
+        {% if searched %}
+        {% for stud in results %}
+        <tr>
+            <td>{{stud.name}}</td>
+            <td>{{stud.id}}</td>
+            <td>{{stud.department_name}}</td>
+            <td>{{stud.status}}</td>
+        </tr>
+        {% endfor %}
+        {% endif %}
     </div>
 </table>
 

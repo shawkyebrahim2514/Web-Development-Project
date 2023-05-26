@@ -3,7 +3,7 @@ from django.http import JsonResponse
 from .models import Admin, Course, Department, Student, Studentcourse
 from django.http import HttpResponse
 from django.template import loader
-
+from django.db.models import Q
 # Create your views here.
 
 def add_course(request):
@@ -187,13 +187,27 @@ def registration_admin(request):
 
 
 def search_page(request):
-    return render(request, 'search-page.html')
+    if request.method == "POST":
+        searched = request.POST['searched']
+        name_matches = Q(name__contains=searched)
+        id_matches = Q(id__contains=searched)
+        results = Student.objects.filter(name_matches | id_matches)
+
+        return render(request,
+                      'search-page.html',
+                      {'searched': searched,
+                       'results': results})
+    else:
+        return render(request,
+                      'search-page.html',
+                      {})
+
 
 
 def student_profile(request, id):
     student_info = Student.objects.get(id=id)
-    load_student = {'name' : student_info.name, 'id' : id, 'university' : student_info.university,
-                    'gender':student_info.gender, 'status':student_info.status, 'course1' : student_info.course1,
-                    'course2':student_info.course2, 'course3':student_info.course3,
-                    'department':student_info.department_name, 'dob' : student_info.date_of_birth}
-    return render(request, 'student-profile.html',load_student)
+    load_student = {'name': student_info.name, 'id': id, 'university': student_info.university,
+                    'gender': student_info.gender, 'status': student_info.status, 'course1': student_info.course1,
+                    'course2': student_info.course2, 'course3': student_info.course3,
+                    'department': student_info.department_name, 'dob': student_info.date_of_birth}
+    return render(request, 'student-profile.html', load_student)

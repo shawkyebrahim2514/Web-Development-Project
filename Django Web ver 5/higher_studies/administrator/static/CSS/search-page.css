@@ -55,17 +55,14 @@ option {
     width: 150px;
 }
 
-.searchbar {
-    font-size: 1em;
-    flex-direction: column;
-    gap: .25rem;
-}
-
 .hide {
     visibility: none;
 }
 
 #bar {
+    font-size: 1em;
+    flex-direction: column;
+    gap: .25rem;
     padding: 10px 20px;
     text-align: center;
     border-radius: 0.375rem;
@@ -76,4 +73,14 @@ option {
 
 #bar::placeholder {
     color: #0B2027;
+}
+
+td {
+    font-size: large;
+    padding: 10px;
+    padding-left: 15px;
+    border-radius: 0.375rem;
+    color: var(--lightColor-2);
+    width: 126px;
+    position: relative;
 }
