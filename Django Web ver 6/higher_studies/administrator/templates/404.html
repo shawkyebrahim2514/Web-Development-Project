@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block metaContent %}
+<meta name="description" content="this page refers to an invalid url."/>
+{% endblock %}
+
+{% block title %}
+<title> 404 Error-Page </title>
+{% endblock %}
+
+{% block static_jsFile %}
+{% endblock %}
+
+
+{% block navBar %}
+    <nav>
+        <div class="container">
+            <div class="logo">
+                <a href="{%url 'main-page' %}"
+                ><img src="{% static 'svg/logo.svg' %}" alt="logo" height="100%"
+                /></a>
+            </div>
+            <div class="bars inactive" onclick="toggleBars()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <div class="links">
+                <ul>
+                    <li class="main-list"><a href="{%url 'main-page' %}">Home</a></li>
+                    <li class="main-list"><a href="{%url 'login-page' %}">Login</a></li>
+                    <li class="main-list">
+                        <a href="{%url 'registration-admin' %}">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block Bodycontent %}
+<div id="error-container">
+    <img src="{% static 'svg/Error-Logo.svg' %}" alt="Error" height="100%">
+</div>
+{% endblock %}
