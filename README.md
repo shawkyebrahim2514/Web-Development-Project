@@ -42,9 +42,10 @@ To run the Higher Studies website locally, follow these steps:
 2. Set up a virtual environment: `python -m venv env` (optional, but recommended)
 3. Activate the virtual environment: `source env/bin/activate` (Linux/Mac) or `.\env\Scripts\activate` (Windows)
 4. Install the required packages: `pip install -r requirements.txt`
-5. Apply the database migrations: `python manage.py migrate`
-6. Start the local server: `python manage.py runserver`
-7. Access the website through a web browser by entering `http://localhost:8000` in the address bar.
+5. Install white noise packages: `pip install whitenoise`
+6. Apply the database migrations: `python manage.py migrate`
+7. Start the local server: `python manage.py runserver`
+8. Access the website through a web browser by entering `http://localhost:8000` in the address bar.
 
 ## Contribution
 
