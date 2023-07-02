@@ -53,7 +53,9 @@ Contributions to this project are welcome. If you find any issues or have sugges
 
 ## Preview
 
-https://github.com/shawkyebrahim2514/Web-Development-Project/assets/102534922/25e4fa00-e547-47bc-8ca9-89ec91c5b311
+
+https://github.com/shawkyebrahim2514/Web-Development-Project/assets/102534922/91599bc6-001b-4d5e-b2e6-5c3fad5131c5
+
 
 
 ## Credits
