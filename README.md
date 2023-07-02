@@ -51,6 +51,10 @@ To run the Higher Studies website locally, follow these steps:
 
 Contributions to this project are welcome. If you find any issues or have suggestions for improvement, please create a new issue or submit a pull request.
 
+## Preview
+
+https://github.com/shawkyebrahim2514/Web-Development-Project/assets/102534922/25e4fa00-e547-47bc-8ca9-89ec91c5b311
+
 
 ## Credits
 | Name | ID | Email | LinkedIn |
